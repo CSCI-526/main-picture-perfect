@@ -41,6 +41,11 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         rider = GetComponent<PlayerRideOnPlatforms>();
 
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+
         //Preserve existing camera init
         float startX = cameraTransform.localEulerAngles.x;
         if (startX > 180f) startX -= 360f;
