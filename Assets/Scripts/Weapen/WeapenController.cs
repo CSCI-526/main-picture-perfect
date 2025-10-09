@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -10,7 +11,7 @@ public class WeaponController : MonoBehaviour
     public TMP_Text ammoText;
 
     [Header("Gun Settings")]
-    public int magazineSize = 30;
+    public int magazineSize = 5;
     public float reloadTime = 1.667f;
     public float fireRate = 0.1f;
 
@@ -18,6 +19,14 @@ public class WeaponController : MonoBehaviour
     private bool isReloading = false;
     private float fireCooldown = 0f;
     private Animator animator;
+
+    struct ShotReq
+    {
+        public Vector3 pos;
+        public Quaternion rot;
+        public Transform shooterRoot;
+    }
+    readonly Queue<ShotReq> shotQueue = new Queue<ShotReq>();
 
     void Start()
     {
@@ -40,7 +49,11 @@ public class WeaponController : MonoBehaviour
             currentAmmo--;
             UpdateAmmoUI();
             FireAnimation();
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            shotQueue.Enqueue(new ShotReq {
+                pos = firePoint.position,
+                rot = firePoint.rotation,
+                shooterRoot = transform.root
+            });
         }
 
         // Manual reload
@@ -53,6 +66,17 @@ public class WeaponController : MonoBehaviour
         if (currentAmmo <= 0 && !isReloading)
         {
             StartCoroutine(Reload());
+        }
+    }
+
+    void FixedUpdate()
+    {
+        while (shotQueue.Count > 0)
+        {
+            var req = shotQueue.Dequeue();
+            var go = Instantiate(bulletPrefab, req.pos, req.rot); 
+            var bullet = go.GetComponent<Bullet>();
+            if (bullet) bullet.Initialize(req.shooterRoot);      
         }
     }
 

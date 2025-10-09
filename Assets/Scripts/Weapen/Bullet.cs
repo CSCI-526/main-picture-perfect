@@ -13,6 +13,9 @@ public class Bullet : MonoBehaviour
     [Header("Freeze")]
     public float freezeDuration = 2.5f; // 命中可冻结目标时的冻结时长
 
+    [Header("Move")]
+    public float moveImpulse = 6f;
+
     [Header("Hit Filter")]
     public LayerMask hittableLayers = ~0;  // 允许命中的图层（建议只勾选放小球或平台的层）
     public bool destroyOnNonFreezable = true; // 打到不可冻结物体是否也销毁子弹
@@ -48,16 +51,29 @@ public class Bullet : MonoBehaviour
 
         col.isTrigger = true; // 用触发检测命中
         col.enabled = true;
+
+        transform.SetParent(null, true);
     }
 
     void OnEnable()
     {
         if (lifeTime > 0f) Destroy(gameObject, lifeTime);
+
+        transform.position += transform.forward * 0.01f;
+        rb.velocity = transform.forward.normalized * speed;
     }
 
     void Start()
     {
-        rb.velocity = transform.forward * speed;
+        //rb.velocity = transform.forward.normalized * speed;
+    }
+
+    void FixedUpdate()
+    {
+        if (!hasHit && rb.velocity.sqrMagnitude < speed * speed * 0.5f)
+        {
+            rb.velocity = transform.forward.normalized * speed;
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -94,6 +110,15 @@ public class Bullet : MonoBehaviour
         {
             Debug.Log($"[Bullet] Freeze {((Component)freezable).gameObject.name} for {freezeDuration}s (hit {hitCol.name})");
             freezable.Freeze(freezeDuration);
+            Destroy(gameObject);
+            return;
+        }
+
+        var movable = hitCol.GetComponentInParent<IMovable>();
+        if (movable != null)
+        {
+            Debug.Log($"[Bullet] Nudge movable: {((Component)movable).gameObject.name} (hit {hitCol.name})");
+            movable.Nudge(moveImpulse);
             Destroy(gameObject);
             return;
         }

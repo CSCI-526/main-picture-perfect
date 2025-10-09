@@ -177,7 +177,7 @@ MonoBehaviour:
   remaining: 0
   xA: 34
   xB: -34
-  speed: 15
+  speed: 11
   waitAtEnds: 0.25
 --- !u!114 &4831317
 MonoBehaviour:
@@ -261,7 +261,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 892e538b4d915624bbe7408719958fb5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -657,6 +657,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1044283740}
     m_Modifications:
+    - target: {fileID: 2271811337327024572, guid: 65f5c892ef274476f91c2b46665d50e8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 892e538b4d915624bbe7408719958fb5, type: 2}
     - target: {fileID: 5121297089812126772, guid: 65f5c892ef274476f91c2b46665d50e8, type: 3}
       propertyPath: m_Name
       value: Balls4
@@ -1273,7 +1277,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 892e538b4d915624bbe7408719958fb5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1555,7 +1559,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 892e538b4d915624bbe7408719958fb5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1623,6 +1627,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1044283740}
     m_Modifications:
+    - target: {fileID: 2271811337327024572, guid: 65f5c892ef274476f91c2b46665d50e8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 892e538b4d915624bbe7408719958fb5, type: 2}
     - target: {fileID: 5121297089812126772, guid: 65f5c892ef274476f91c2b46665d50e8, type: 3}
       propertyPath: m_Name
       value: Ball1
@@ -2621,7 +2629,7 @@ MonoBehaviour:
   remaining: 0
   xA: 34
   xB: -34
-  speed: 15
+  speed: 10
   waitAtEnds: 0.25
 --- !u!114 &1432747604
 MonoBehaviour:
@@ -2705,7 +2713,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 892e538b4d915624bbe7408719958fb5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3032,6 +3040,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1044283740}
     m_Modifications:
+    - target: {fileID: 2271811337327024572, guid: 65f5c892ef274476f91c2b46665d50e8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 892e538b4d915624bbe7408719958fb5, type: 2}
     - target: {fileID: 5121297089812126772, guid: 65f5c892ef274476f91c2b46665d50e8, type: 3}
       propertyPath: m_Name
       value: Ball2
@@ -3219,6 +3231,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1044283740}
     m_Modifications:
+    - target: {fileID: 2271811337327024572, guid: 65f5c892ef274476f91c2b46665d50e8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 892e538b4d915624bbe7408719958fb5, type: 2}
     - target: {fileID: 5121297089812126772, guid: 65f5c892ef274476f91c2b46665d50e8, type: 3}
       propertyPath: m_Name
       value: Balls3
@@ -3464,7 +3480,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 892e538b4d915624bbe7408719958fb5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3539,7 +3555,7 @@ MonoBehaviour:
   remaining: 0
   xA: 34
   xB: -34
-  speed: 15
+  speed: 10
   waitAtEnds: 0.25
 --- !u!114 &1943333078
 MonoBehaviour:
@@ -3625,7 +3641,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 30 / 30
+  m_text: 5 / 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3860,9 +3876,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7162381659689549872, guid: 44176c7d642f37d40b886da8da5119b2, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8435581171763694623, guid: 44176c7d642f37d40b886da8da5119b2, type: 3}
       propertyPath: speed
-      value: 70
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 8435581171763694623, guid: 44176c7d642f37d40b886da8da5119b2, type: 3}
       propertyPath: freezeDuration
