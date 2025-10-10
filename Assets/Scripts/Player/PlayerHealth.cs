@@ -24,6 +24,13 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void RestoreFullHealth()
+    {//  for collectable
+        currentHits = 0;
+        Debug.Log("Health restored to full!");
+    }
+
+
     void Respawn()
     {
         currentHits = 0;
