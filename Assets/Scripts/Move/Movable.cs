@@ -79,7 +79,7 @@ public class Movable : MonoBehaviour, IMovable
     {
         Vector3 dir = GetAxisDir(axis0);
         if (dir.sqrMagnitude < 1e-6f || impulse <= 0f) return;
-        rb.isKinematic = false; // ensure physics moves it
+        rb.isKinematic = false; //ensure physics moves it
         rb.AddForce(dir * impulse, ForceMode.VelocityChange);
         if (maxSpeed > 0f && rb.velocity.sqrMagnitude > maxSpeed * maxSpeed)
             rb.velocity = rb.velocity.normalized * maxSpeed;
