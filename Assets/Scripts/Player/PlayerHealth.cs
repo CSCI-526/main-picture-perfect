@@ -7,33 +7,45 @@ public class PlayerHealth : MonoBehaviour
     private int currentHits = 0;
 
     private RespawnManager respawn;
+    private HealthBarUI healthBar;
 
     void Awake()
     {
         respawn = GetComponent<RespawnManager>();
+        healthBar = FindObjectOfType<HealthBarUI>();
+
+        if (healthBar != null)
+        {
+            healthBar.InitializeHearts(maxHits);
+            healthBar.UpdateHearts(currentHits, maxHits);
+        }
     }
 
     public void TakeDamage(int amount)
     {
-        currentHits += amount;
+        currentHits = Mathf.Clamp(currentHits + amount, 0, maxHits);
         Debug.Log($"Player hit {currentHits}/{maxHits}");
 
+        if (healthBar != null)
+            healthBar.UpdateHearts(currentHits, maxHits);
+
         if (currentHits >= maxHits)
-        {
             Respawn();
-        }
     }
 
     public void RestoreFullHealth()
-    {//  for collectable
+    {
         currentHits = 0;
         Debug.Log("Health restored to full!");
+        if (healthBar != null)
+            healthBar.UpdateHearts(currentHits, maxHits);
     }
-
 
     void Respawn()
     {
         currentHits = 0;
         respawn.Respawn();
+        if (healthBar != null)
+            healthBar.UpdateHearts(currentHits, maxHits);
     }
 }
