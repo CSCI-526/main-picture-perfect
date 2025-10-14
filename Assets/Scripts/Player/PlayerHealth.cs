@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
 
     private RespawnManager respawn;
     private HealthBarUI healthBar;
+    private bool isInvincible = false;
 
     void Awake()
     {
@@ -19,12 +20,16 @@ public class PlayerHealth : MonoBehaviour
             healthBar.InitializeHearts(maxHits);
             healthBar.UpdateHearts(currentHits, maxHits);
         }
+
+        StartCoroutine(StartInvincibility(5f)); //no health loss for 5 s
     }
 
     public void TakeDamage(int amount)
     {
+        if (isInvincible) return;
+
         currentHits = Mathf.Clamp(currentHits + amount, 0, maxHits);
-        Debug.Log($"Player hit {currentHits}/{maxHits}");
+       
 
         if (healthBar != null)
             healthBar.UpdateHearts(currentHits, maxHits);
@@ -36,7 +41,7 @@ public class PlayerHealth : MonoBehaviour
     public void RestoreFullHealth()
     {
         currentHits = 0;
-        Debug.Log("Health restored to full!");
+        
         if (healthBar != null)
             healthBar.UpdateHearts(currentHits, maxHits);
     }
@@ -47,5 +52,16 @@ public class PlayerHealth : MonoBehaviour
         respawn.Respawn();
         if (healthBar != null)
             healthBar.UpdateHearts(currentHits, maxHits);
+
+        StartCoroutine(StartInvincibility(5f)); //5 sec no loss health
+    }
+
+    private System.Collections.IEnumerator StartInvincibility(float duration)
+    {
+        isInvincible = true;
+        Debug.Log($"Invincible for {duration} seconds");
+        yield return new WaitForSeconds(duration);
+        isInvincible = false;
+        Debug.Log("Invincibility ended");
     }
 }
