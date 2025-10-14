@@ -3218,6 +3218,18 @@ PrefabInstance:
       value: ReHealth (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7393138530478995403, guid: aa6075a61798bb14680ae6491717985b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393138530478995403, guid: aa6075a61798bb14680ae6491717985b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393138530478995403, guid: aa6075a61798bb14680ae6491717985b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393138530478995403, guid: aa6075a61798bb14680ae6491717985b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.194243
       objectReference: {fileID: 0}
@@ -4171,6 +4183,18 @@ PrefabInstance:
     - target: {fileID: 936710618241893701, guid: aa6075a61798bb14680ae6491717985b, type: 3}
       propertyPath: m_Name
       value: ReHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393138530478995403, guid: aa6075a61798bb14680ae6491717985b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393138530478995403, guid: aa6075a61798bb14680ae6491717985b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393138530478995403, guid: aa6075a61798bb14680ae6491717985b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7393138530478995403, guid: aa6075a61798bb14680ae6491717985b, type: 3}
       propertyPath: m_LocalPosition.x
