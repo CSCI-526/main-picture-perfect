@@ -57,6 +57,7 @@ public class Movable : MonoBehaviour, IMovable
     {
         rb = GetComponent<Rigidbody>();
         origin = rb.position; //Starting spot becomes Origin
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
     }
 
     //Called by bullet

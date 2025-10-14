@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class PlatformMotion : MonoBehaviour
 {
+    //Delta of current rendered frame (already interpolated by Rigidbody)
     public Vector3 WorldDeltaThisFrame { get; private set; }
 
-    Vector3 _last; //Platform's position in previous frame
+    Rigidbody rb;
+    Vector3 lastLatePos;
 
     void Awake()
     {
-        _last = transform.position;
+        rb = GetComponent<Rigidbody>();
+        //Smooths visuals
+        if (rb) rb.interpolation = RigidbodyInterpolation.Interpolate;
+        lastLatePos = transform.position;
+        WorldDeltaThisFrame = Vector3.zero;
     }
 
     void LateUpdate()
     {
-        //Calculates how far platform moved since last frame
-        //And stores current position for use in the next frame
-        WorldDeltaThisFrame = transform.position - _last;
-        _last = transform.position;
+        Vector3 current = transform.position;
+        WorldDeltaThisFrame = current - lastLatePos;
+        lastLatePos = current;
     }
 }
 
