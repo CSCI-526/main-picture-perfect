@@ -5099,7 +5099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8435581171763694623, guid: 44176c7d642f37d40b886da8da5119b2, type: 3}
       propertyPath: speed
-      value: 55
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 8435581171763694623, guid: 44176c7d642f37d40b886da8da5119b2, type: 3}
       propertyPath: freezeDuration
