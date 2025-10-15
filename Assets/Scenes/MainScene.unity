@@ -4533,7 +4533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heartPrefab: {fileID: 4808009818686057385, guid: 61359a53ebeac66448ba87342e7ec1c1, type: 3}
-  heartSprite: {fileID: 21300000, guid: a71f1896be5c18a499fc0220199ff90d, type: 3}
+  heartSprite: {fileID: 21300000, guid: 7e42a9f914865844c9cb5c04bf488c60, type: 3}
 --- !u!1 &2116588336
 GameObject:
   m_ObjectHideFlags: 0
