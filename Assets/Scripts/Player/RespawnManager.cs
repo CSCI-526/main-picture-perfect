@@ -40,6 +40,12 @@ public class RespawnManager : MonoBehaviour
     {
         health.RestoreFullHealth();
     }
+
+    foreach (HealthCollectable hc in FindObjectsOfType<HealthCollectable>())
+    {
+        hc.Respawn();
+    }
+
 }
 
 

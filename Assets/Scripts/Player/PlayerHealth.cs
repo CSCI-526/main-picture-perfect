@@ -45,6 +45,11 @@ public class PlayerHealth : MonoBehaviour
         if (healthBar != null)
             healthBar.UpdateHearts(currentHits, maxHits);
     }
+    public bool IsFullHealth()
+    {
+        return currentHits == 0;
+    }
+
 
     void Respawn()
     {
