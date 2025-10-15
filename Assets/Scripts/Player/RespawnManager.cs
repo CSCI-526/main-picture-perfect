@@ -26,13 +26,22 @@ public class RespawnManager : MonoBehaviour
     }
 
     public void Respawn() {
-        if (currentSpawn == null)
-        {
-            Debug.LogWarning("RespawnManager: No spawn set.");
-            return;
-        }
-        TeleportTo(currentSpawn, resetLook:true);
+    if (currentSpawn == null)
+    {
+        Debug.LogWarning("RespawnManager: No spawn set.");
+        return;
     }
+
+    TeleportTo(currentSpawn, resetLook: true);
+
+    // Restore player's health if PlayerHealth component exists
+    var health = GetComponent<PlayerHealth>();
+    if (health != null)
+    {
+        health.RestoreFullHealth();
+    }
+}
+
 
     void TeleportTo(Transform t, bool resetLook) {
         if (cc)
