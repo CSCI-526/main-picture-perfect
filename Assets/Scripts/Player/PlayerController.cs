@@ -35,6 +35,10 @@ public class PlayerController : MonoBehaviour
     private float lastGroundedTime = -999f;
     private float lastJumpPressedTime = -999f;
     private bool  jumpConsumed;
+    //Record of last ground move direction for air control so that we can retain momentum
+    private Vector3 lastGroundMoveDir = Vector3.zero;
+
+
 
     void Start()
     {
@@ -98,10 +102,25 @@ public class PlayerController : MonoBehaviour
         velocity.y += effectiveGravity * Time.deltaTime;
 
         //Horizontal movement
+        Vector3 horiz = Vector3.zero;
+
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
         Vector3 moveInput = (transform.right * x + transform.forward * z).normalized;
-        Vector3 horiz = moveInput * moveSpeed;
+
+        // Grounded: Change direction immediately
+        // In air: Retain last ground direction for air control
+        if (grounded)
+        {
+            lastGroundMoveDir = moveInput;
+            horiz = moveInput * moveSpeed;
+        }
+        else
+        {
+            // Last ground direction for air control
+            horiz = lastGroundMoveDir * moveSpeed;
+        }
+
 
         //Horizontal and Vertical Movement
         Vector3 totalVelocity = horiz + Vector3.up * velocity.y;
