@@ -19,8 +19,9 @@ public class GlobalFreezeTrigger : MonoBehaviour
 
         foreach (var f in allFreezables)
         {
-            f.Freeze(freezeDuration);
+            f.Freeze(freezeDuration, "global");//Clarify source of freeze
         }
+
 
         Debug.Log($"[GlobalFreezeTrigger] All Freezable has been frozen for {freezeDuration} seconds");
     }

@@ -12,13 +12,15 @@ public class Freezable : MonoBehaviour, IFreezable
 
     public bool IsFrozen => isFrozen;
 
-    public void Freeze(float duration)
+    public void Freeze(float duration, string source = "default")
     {
-        Debug.Log($"[Freezable] {name} frozen for {duration}s");
+        Debug.Log($"[Freezable] {name} frozen for {duration}s by {source}");
         isFrozen = true;
         remaining = Mathf.Max(remaining, duration);
-        OnFreeze();
+        OnFreeze(source);
     }
+
+protected virtual void OnFreeze(string source) { }
 
     public void Unfreeze()
     {

@@ -7,25 +7,25 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [Header("Motion")]
-    public float speed = 60f;          // 初速度
-    public float lifeTime = 2.0f;      // 存活时间
+    public float speed = 60f;          // Speed of the bullet
+    public float lifeTime = 2.0f;      // Bullet lifetime in seconds
 
     [Header("Freeze")]
-    public float freezeDuration = 2.5f; // 命中可冻结目标时的冻结时长
+    public float freezeDuration = 2.5f; // How long to freeze hit targets
 
     [Header("Move")]
     public float moveImpulse = 6f;
 
     [Header("Hit Filter")]
-    public LayerMask hittableLayers = ~0;  // 允许命中的图层（建议只勾选放小球或平台的层）
-    public bool destroyOnNonFreezable = true; // 打到不可冻结物体是否也销毁子弹
+    public LayerMask hittableLayers = ~0;  // Layers that can be hit
+    public bool destroyOnNonFreezable = true; // Whether to destroy bullet when hitting non-freezable objects
 
     private Rigidbody rb;
     private Collider col;
     private bool hasHit = false;
-    private Transform ignoreRoot;  // 可选：忽略与发射者自身的碰撞
+    private Transform ignoreRoot;  // Optional: Ignore collisions with shooterRoot
 
-    // 初始化时可传入玩家 Transform，用于忽略与自身的碰撞
+    // Optional: Ignore collisions with shooterRoot
     public void Initialize(Transform shooterRoot)
     {
         ignoreRoot = shooterRoot;
@@ -49,7 +49,7 @@ public class Bullet : MonoBehaviour
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
         rb.interpolation = RigidbodyInterpolation.Interpolate;
 
-        col.isTrigger = true; // 用触发检测命中
+        col.isTrigger = true; // Use trigger to simplify collision handling
         col.enabled = true;
 
         transform.SetParent(null, true);
@@ -80,11 +80,10 @@ public class Bullet : MonoBehaviour
     {
         if (hasHit) return;
 
-        // 图层过滤：不在 hittableLayers 的直接忽略
         if (((1 << other.gameObject.layer) & hittableLayers) == 0)
             return;
 
-        // 避开发射者本体
+        // Ignore collisions with shooterRoot
         if (ignoreRoot && other.transform.IsChildOf(ignoreRoot)) return;
 
         HandleHit(other);
@@ -94,25 +93,26 @@ public class Bullet : MonoBehaviour
     {
         hasHit = true;
 
-        // 1. 命中小球（TargetBall）
+        // Get TargetBall
         var ball = hitCol.GetComponentInParent<TargetBall>();
         if (ball != null)
         {
             Debug.Log($"[Bullet] Hit TargetBall {ball.name}");
-            ball.Freeze(freezeDuration); // 直接调用 Freeze（TargetBall 自己控制消失/恢复）
+            ball.Freeze(freezeDuration, "hit"); // Freeze for specified duration, source = "hit"
             Destroy(gameObject);
             return;
         }
 
-        // 2. 命中其他 Freezable
+
         var freezable = hitCol.GetComponentInParent<IFreezable>();
         if (freezable != null)
         {
             Debug.Log($"[Bullet] Freeze {((Component)freezable).gameObject.name} for {freezeDuration}s (hit {hitCol.name})");
-            freezable.Freeze(freezeDuration);
+            freezable.Freeze(freezeDuration, "hit"); // Freeze for specified duration, source = "hit"
             Destroy(gameObject);
             return;
         }
+
 
         var movable = hitCol.GetComponentInParent<IMovable>();
         if (movable != null)
@@ -123,7 +123,7 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        // 3. 命中不可冻结的：按开关决定是否销毁
+        // Hit something non-freezable
         if (destroyOnNonFreezable)
         {
             Debug.Log($"[Bullet] Hit non-freezable: {hitCol.name}");
@@ -131,7 +131,7 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-            hasHit = false; // 允许继续命中下一个
+            hasHit = false; // Continue flying
         }
     }
 }

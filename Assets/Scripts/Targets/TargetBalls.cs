@@ -16,17 +16,18 @@ public class TargetBall : Freezable
         rend = GetComponent<MeshRenderer>();
     }
 
-    protected override void OnFreeze()
+    protected override void OnFreeze(string source)
     {
-        //When frozen → disable rendering and collider
         if (rend) rend.enabled = false;
         if (col) col.enabled = false;
-        // Notify manager that I am frozen
-        if (manager != null)
+
+    // Only notify manager when I am frozen by a hit
+        if (manager != null && source == "hit")
         {
             manager.OnBallFrozen(this);
         }
-    }
+}
+
 
     protected override void OnUnfreeze()
     {

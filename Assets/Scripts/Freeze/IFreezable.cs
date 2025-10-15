@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IFreezable
 {
-    void Freeze(float duration);
+    void Freeze(float duration, string source = "default");
     void Unfreeze();
     bool IsFrozen { get; }
 }
