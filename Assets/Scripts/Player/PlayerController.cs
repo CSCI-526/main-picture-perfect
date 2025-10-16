@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Mouse Look")]
     public Transform cameraTransform;
-    public float mouseSensitivity = 250f;
+    public float mouseSensitivity = 5000f;
 
     private CharacterController controller;
     private PlayerRideOnPlatforms rider;   
