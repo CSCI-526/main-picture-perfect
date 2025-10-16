@@ -179,9 +179,9 @@ MonoBehaviour:
   firePoint: {fileID: 5692379661933486009}
   player: {fileID: 0}
   fireRate: 6
-  bulletSpeed: 40
-  attackRange: 50
-  lookRange: 25
+  bulletSpeed: 35
+  attackRange: 70
+  lookRange: 50
 --- !u!1 &8357015085885864223
 GameObject:
   m_ObjectHideFlags: 0
