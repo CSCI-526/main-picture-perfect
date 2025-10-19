@@ -6,13 +6,13 @@ using UnityEngine.EventSystems;
 public class DoorTrigger : MonoBehaviour
 {
     [Header("UI Elements")]
-    public GameObject uiPrompt;            // “按E输入密码” 提示
-    public GameObject inputUI;             // 输入界面 Panel
-    public TMP_InputField passwordInput;   // TMP 输入框
-    public TMP_InputField errorText;             // 密码错误提示
+    public GameObject uiPrompt;            // press E shows
+    public GameObject inputUI;             // input panel
+    public TMP_InputField passwordInput;   // TMP input field
+    public TMP_InputField errorText;             // error message text
 
     [Header("Door Object")]
-    public GameObject door;                // 要移除的大门
+    public GameObject door;                // the door to open
 
     private bool isPlayerInRange = false;
 
@@ -22,7 +22,7 @@ public class DoorTrigger : MonoBehaviour
         inputUI.SetActive(false);
         errorText.gameObject.SetActive(false);
 
-        // ⌨️ 绑定按Enter触发输入验证
+        // Bind confirm button
         passwordInput.onSubmit.AddListener(delegate { OnConfirmClicked(); });
     }
 
@@ -40,11 +40,11 @@ public class DoorTrigger : MonoBehaviour
         inputUI.SetActive(true);
         errorText.gameObject.SetActive(false);
 
-        passwordInput.text = "";     // 清空旧输入
-        passwordInput.Select();      // 聚焦输入框
+        passwordInput.text = "";     // Clear previous input
+        passwordInput.Select();      // Focus on input field
 
         errorText.gameObject.SetActive(false);
-        Time.timeScale = 0f;         // 可选：暂停游戏
+        Time.timeScale = 0f;         // Pause game
     }
 
     public void OnConfirmClicked()
