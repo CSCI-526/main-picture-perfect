@@ -10,8 +10,8 @@ Inherits from Freezable.cs to freeze movement when needed
 public class BackAndForthPlatform : Freezable
 {
     [Header("World X positions to travel between")]
-    public float xA = 34f;     //x-point 1
-    public float xB = -34f;    //x-point 2
+    public float xA = 40f;     //x-point 1
+    public float xB = -40f;    //x-point 2
 
     [Header("Motion")]
     public float speed = 10f;          
