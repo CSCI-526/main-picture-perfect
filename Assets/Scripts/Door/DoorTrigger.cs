@@ -16,6 +16,10 @@ public class DoorTrigger : MonoBehaviour
 
     private bool isPlayerInRange = false;
 
+    [Header("Respawn Settings")]
+    public Transform newSpawnPoint;  // New spawn point after passing the door
+
+
     void Start()
     {
         uiPrompt.SetActive(false);
@@ -53,7 +57,19 @@ public class DoorTrigger : MonoBehaviour
 
         if (input == "1234")
         {
-            door.SetActive(false);
+            // Open the door
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                RespawnManager rm = player.GetComponent<RespawnManager>();
+                if (rm != null && newSpawnPoint != null)
+                {
+                    rm.SetSpawn(newSpawnPoint);
+                    rm.Respawn();
+                    Debug.Log("Spawn point updated!");
+                }
+            }
+
             inputUI.SetActive(false);
             Time.timeScale = 1f;
         }
@@ -62,6 +78,7 @@ public class DoorTrigger : MonoBehaviour
             errorText.gameObject.SetActive(true);
         }
     }
+
 
     void OnTriggerEnter(Collider other)
     {

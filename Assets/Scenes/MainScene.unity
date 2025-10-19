@@ -1117,6 +1117,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4833526819373013010, guid: 53c12efb578fbc146a7fdac80506377f, type: 3}
   m_PrefabInstance: {fileID: 233084745}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &239597627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 239597628}
+  m_Layer: 0
+  m_Name: NewSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &239597628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239597627}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.9991273, z: -0, w: -0.041768093}
+  m_LocalPosition: {x: -1.11, y: 13.01, z: 53.19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 184.788, z: 0}
 --- !u!1001 &266408393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4847,8 +4878,8 @@ Transform:
   m_GameObject: {fileID: 1290307719}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.23, y: 16.27, z: 53.78}
-  m_LocalScale: {x: 9.584592, y: 6.312862, z: 0.15166}
+  m_LocalPosition: {x: -0.23, y: 16.27, z: 55.58}
+  m_LocalScale: {x: 90.89191, y: 53.97333, z: 0.15166}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1641733288}
@@ -6015,6 +6046,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ar1(automatic rifle)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7ee290c88843d2c49be639ef4dea8a73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6851,7 +6886,7 @@ Transform:
   m_GameObject: {fileID: 1641733287}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.405, z: 5.5}
+  m_LocalPosition: {x: 0, y: 0.117, z: 5.5}
   m_LocalScale: {x: 0.5477084, y: 0.35037, z: 8.438444}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6874,6 +6909,7 @@ MonoBehaviour:
   passwordInput: {fileID: 361554836}
   errorText: {fileID: 1555607535}
   door: {fileID: 1290307719}
+  newSpawnPoint: {fileID: 239597628}
 --- !u!65 &1641733290
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9178,3 +9214,4 @@ SceneRoots:
   - {fileID: 2018728365}
   - {fileID: 1290307723}
   - {fileID: 2040968220}
+  - {fileID: 239597628}
