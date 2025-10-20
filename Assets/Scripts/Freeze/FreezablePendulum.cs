@@ -19,6 +19,8 @@ public class FreezablePendulum : MonoBehaviour, IFreezable
     //Debugging purposes
     string lastSource = "default";
 
+    EffectHighlighter fx;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -27,6 +29,8 @@ public class FreezablePendulum : MonoBehaviour, IFreezable
         //Smooth render while swinging
         rb.interpolation = RigidbodyInterpolation.Interpolate;
         rb.isKinematic = false;
+
+        fx = GetComponentInParent<EffectHighlighter>();
     }
 
     public bool IsFrozen => isFrozen;
@@ -62,6 +66,8 @@ public class FreezablePendulum : MonoBehaviour, IFreezable
         if (isFrozen) return;
         isFrozen = true;
 
+        fx?.Activate();
+
         cachedAngularVelocity = rb.angularVelocity;
         if (hinge != null)
         {
@@ -86,5 +92,7 @@ public class FreezablePendulum : MonoBehaviour, IFreezable
         rb.angularVelocity = cachedAngularVelocity;
 
         isFrozen = false;
+
+        fx?.Deactivate();
     }
 }

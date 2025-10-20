@@ -14,6 +14,10 @@ public class Movable : MonoBehaviour, IMovable
     [Header("Mode")]
     [SerializeField] MoveMode mode = MoveMode.PingPongToCorner;
 
+    [Header("Visual Feedback")]
+    [SerializeField] private EffectHighlighter fx;
+    [SerializeField, Min(0f)] private float impulseFlashSeconds = 0.35f;
+
     [Header("Axis Space")]
     [Tooltip("If ON, axes are relative to this transform's rotation; if OFF, world axes.")]
     [SerializeField] bool useLocalAxes = false;
@@ -58,6 +62,11 @@ public class Movable : MonoBehaviour, IMovable
         rb = GetComponent<Rigidbody>();
         origin = rb.position; //Starting spot becomes Origin
         rb.interpolation = RigidbodyInterpolation.Interpolate;
+
+        if (!fx)
+        {
+            fx =  GetComponentInParent<EffectHighlighter>();
+        }
     }
 
     //Called by bullet
@@ -66,11 +75,13 @@ public class Movable : MonoBehaviour, IMovable
         switch (mode)
         {
             case MoveMode.PingPongToCorner:
+                fx?.Activate();
                 StartOrRestart(PingPongCycles(cycles));
                 break;
 
             case MoveMode.ImpulseSingleAxis:
                 ApplyImpulseOnAxis0(amount > 0f ? amount : baseImpulse);
+                fx?.ActivateForSeconds(impulseFlashSeconds);
                 break;
         }
     }
@@ -117,6 +128,7 @@ public class Movable : MonoBehaviour, IMovable
         }
 
         if (snapToOriginAfter) rb.MovePosition(O);
+        fx?.Deactivate();
         activeCo = null;
     }
 
