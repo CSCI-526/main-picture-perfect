@@ -5,6 +5,7 @@ public class MainMenuUI : MonoBehaviour
 {
     public void StartGame()
     {
+        AnalyticsManager.Instance.ResetData();
         SceneManager.LoadScene("MainScene"); 
     }
 

@@ -34,6 +34,8 @@ public class RespawnManager : MonoBehaviour
 
     TeleportTo(currentSpawn, resetLook: true);
 
+    AnalyticsManager.Instance.RecordRespawn();
+
     // Restore player's health if PlayerHealth component exists
     var health = GetComponent<PlayerHealth>();
     if (health != null)

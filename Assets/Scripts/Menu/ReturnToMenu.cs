@@ -4,23 +4,34 @@ using System.Collections;
 
 public class ReturnToMenu : MonoBehaviour
 {
+    private SendToGoogle sender;
     private bool isReturning = false;
+
+    void Start()
+    {
+        sender = FindObjectOfType<SendToGoogle>();
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.M) && !isReturning)
         {
             isReturning = true;
-            StartCoroutine(ReturnToMenuScene());
+            StartCoroutine(ReturnAfterUpload());
         }
     }
 
-    IEnumerator ReturnToMenuScene()
+    IEnumerator ReturnAfterUpload()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        yield return new WaitForSeconds(0.5f);
+
+        
+        if (sender != null)
+        {
+            sender.Send();
+            yield return new WaitForSeconds(1f); 
+        }
         SceneManager.LoadScene("StartMenuScene");
     }
 }
-
