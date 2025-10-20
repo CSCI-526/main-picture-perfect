@@ -1141,6 +1141,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5296566309325108237, guid: 53c12efb578fbc146a7fdac80506377f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7615147646617068985, guid: 53c12efb578fbc146a7fdac80506377f, type: 3}
       propertyPath: m_Name
       value: SpawnNPC
@@ -1593,7 +1597,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   sphereGroundExtra: 0.25
   cameraTransform: {fileID: 799965289}
-  mouseSensitivity: 500
+  mouseSensitivity: 200
 --- !u!143 &376619666
 CharacterController:
   m_ObjectHideFlags: 0
@@ -9964,7 +9968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8435581171763694623, guid: 44176c7d642f37d40b886da8da5119b2, type: 3}
       propertyPath: speed
-      value: 90
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 8435581171763694623, guid: 44176c7d642f37d40b886da8da5119b2, type: 3}
       propertyPath: freezeDuration
