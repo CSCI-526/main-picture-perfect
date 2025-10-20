@@ -54,8 +54,9 @@ public class WeaponController : MonoBehaviour
                 rot = firePoint.rotation,
                 shooterRoot = transform.root
             });
-            AnalyticsManager.Instance.RecordBulletFired();
-
+            if (AnalyticsManager.Instance != null){
+                AnalyticsManager.Instance.RecordBulletFired();
+            }
         }
 
         // Manual reload

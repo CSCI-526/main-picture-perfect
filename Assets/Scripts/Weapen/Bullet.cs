@@ -109,11 +109,13 @@ public class Bullet : MonoBehaviour
         {
             Debug.Log($"[Bullet] Freeze {((Component)freezable).gameObject.name} for {freezeDuration}s (hit {hitCol.name})");
             freezable.Freeze(freezeDuration, "hit"); // Freeze for specified duration, source = "hit"
-            if (hitCol.CompareTag("NPC"))
-            {
-                AnalyticsManager.Instance.RecordNPCFrozen();
+            if (AnalyticsManager.Instance != null){
+                if (hitCol.CompareTag("NPC"))
+                {
+                    AnalyticsManager.Instance.RecordNPCFrozen();
+                }
+                AnalyticsManager.Instance.RecordFreezeHit();
             }
-            AnalyticsManager.Instance.RecordFreezeHit();
             Destroy(gameObject);
             return;
         }
@@ -124,7 +126,9 @@ public class Bullet : MonoBehaviour
         {
             Debug.Log($"[Bullet] Nudge movable: {((Component)movable).gameObject.name} (hit {hitCol.name})");
             movable.Nudge(moveImpulse);
-            AnalyticsManager.Instance.RecordMoveHit();
+            if (AnalyticsManager.Instance != null){
+                AnalyticsManager.Instance.RecordMoveHit();
+            }
 
             Destroy(gameObject);
             return;

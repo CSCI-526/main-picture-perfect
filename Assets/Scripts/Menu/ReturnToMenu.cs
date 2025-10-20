@@ -29,8 +29,12 @@ public class ReturnToMenu : MonoBehaviour
         
         if (sender != null)
         {
-            sender.Send();
-            yield return new WaitForSeconds(1f); 
+            if (AnalyticsManager.Instance != null){
+
+            
+                sender.Send();
+                yield return new WaitForSeconds(1f); 
+            }
         }
         SceneManager.LoadScene("StartMenuScene");
     }

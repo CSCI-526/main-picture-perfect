@@ -60,7 +60,9 @@ public class DoorTrigger : MonoBehaviour
             // Open the door
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             //record data
-            AnalyticsManager.Instance.CompleteTutorial();
+            if (AnalyticsManager.Instance != null){
+                AnalyticsManager.Instance.CompleteTutorial();
+            }
             if (player != null)
             {
                 RespawnManager rm = player.GetComponent<RespawnManager>();

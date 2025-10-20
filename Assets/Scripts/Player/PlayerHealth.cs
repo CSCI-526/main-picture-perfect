@@ -35,7 +35,9 @@ public class PlayerHealth : MonoBehaviour
             healthBar.UpdateHearts(currentHits, maxHits);
 
         if (currentHits >= maxHits){
-            AnalyticsManager.Instance.RecordNPCDeath();
+            if (AnalyticsManager.Instance != null){
+                AnalyticsManager.Instance.RecordNPCDeath();
+            }
             Respawn();
         }
             
