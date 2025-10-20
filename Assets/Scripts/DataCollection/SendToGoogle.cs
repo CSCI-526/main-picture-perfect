@@ -54,13 +54,14 @@ public class SendToGoogle : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("entry.694186398", sessionID);
         form.AddField("entry.406484629", bulletsFired);
-        form.AddField("entry.1262191424", freezeHits);
-        form.AddField("entry.269115188", moveHits);
+        form.AddField("entry.1262019424", freezeHits);
+        form.AddField("entry.2069151188", moveHits);
         form.AddField("entry.117882450", npcsFrozen);
         form.AddField("entry.1506887316", respawnCount);
         form.AddField("entry.1189061886", npcDeaths);
         form.AddField("entry.1858668493", sessionTime);
         form.AddField("entry.751980840", tutorialCompleted);
+
 
         using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
         {
