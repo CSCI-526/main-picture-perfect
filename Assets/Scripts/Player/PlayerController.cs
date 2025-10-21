@@ -39,9 +39,14 @@ public class PlayerController : MonoBehaviour
     private Vector3 lastGroundMoveDir = Vector3.zero;
 
 
+void Awake()
+{
+    mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", mouseSensitivity);
+}
 
     void Start()
     {
+        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", mouseSensitivity);
         controller = GetComponent<CharacterController>();
         rider = GetComponent<PlayerRideOnPlatforms>();
 
@@ -146,6 +151,7 @@ public class PlayerController : MonoBehaviour
 
     void HandleMouseLook()
     {
+        if (Time.timeScale == 0f) return;
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
