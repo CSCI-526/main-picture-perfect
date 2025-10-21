@@ -105,6 +105,12 @@ public class Bullet : MonoBehaviour
 
 
         var freezable = hitCol.GetComponentInParent<IFreezable>();
+        if (freezable == null)
+        {
+            //Fallback: search the hit object’s root subtree
+            var root = hitCol.transform.root;
+            freezable = root.GetComponentInChildren<IFreezable>();
+        }
         if (freezable != null)
         {
             Debug.Log($"[Bullet] Freeze {((Component)freezable).gameObject.name} for {freezeDuration}s (hit {hitCol.name})");
