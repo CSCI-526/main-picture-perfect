@@ -15,7 +15,7 @@ public class AddTriggerArea : MonoBehaviour
                 continue;
             }
 
-            // 创建触发器子物体
+            // create trigger area
             GameObject triggerArea = new GameObject("TriggerArea");
             triggerArea.transform.parent = obj.transform;
             triggerArea.transform.localPosition = Vector3.zero;
@@ -27,7 +27,7 @@ public class AddTriggerArea : MonoBehaviour
             triggerCollider.center = originalCollider.center;
             triggerCollider.isTrigger = true;
 
-            // 添加 SetRespawnPointOnTouch 脚本（你已有）
+            // add SetRespawnPointOnTouch script
             triggerArea.AddComponent<SetRespawnPointOnTouch>();
 
             Debug.Log($"Added TriggerArea to {obj.name}");

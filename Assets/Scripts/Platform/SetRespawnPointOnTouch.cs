@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class SetRespawnPointOnTouch : MonoBehaviour
 {
-    [Tooltip("设置重生点时，在平台上方的垂直偏移量")]
+    [Tooltip("Vertical offset for the respawn point above the platform")]
     public float yOffset = 5f;
 
-    private bool hasTriggered = false;  // 是否已触发过
+    private bool hasTriggered = false;  // whether the respawn point has been set
 
     private void OnTriggerEnter(Collider other)
     {
-        if (hasTriggered) return;  // 已触发过则忽略
+        if (hasTriggered) return;  // If already triggered, do nothing
 
         if (other.CompareTag("Player"))
         {
@@ -21,13 +21,13 @@ public class SetRespawnPointOnTouch : MonoBehaviour
                 tempSpawn.transform.position = platformPos + Vector3.up * yOffset;
 
                 respawnManager.SetSpawn(tempSpawn.transform);
-                Debug.Log($"✅ Respawn point set to: {tempSpawn.transform.position}");
+                Debug.Log($" Respawn point set to: {tempSpawn.transform.position}");
 
-                hasTriggered = true;  // 标记为已触发
+                hasTriggered = true;  // change state to triggered
             }
             else
             {
-                Debug.LogWarning("⚠️ RespawnManager not found.");
+                Debug.LogWarning("RespawnManager not found.");
             }
         }
     }
