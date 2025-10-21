@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;//data
+
 
 public class PauseMenuManager : MonoBehaviour
 {
@@ -12,6 +14,9 @@ public class PauseMenuManager : MonoBehaviour
     public PlayerController playerController;
 
     private bool isPaused = false;
+
+    private SendToGoogle sender;//data
+
 
     void Start()
     {
@@ -91,6 +96,17 @@ public class PauseMenuManager : MonoBehaviour
     public void BackToMenu()
     {
         Time.timeScale = 1f;
+
+        if (SceneManager.GetActiveScene().name == "MainScene")
+        {
+            sender = FindObjectOfType<SendToGoogle>();
+            if (sender != null && AnalyticsManager.Instance != null)
+            {
+                sender.Send();
+                Debug.Log("data upload before returning to menu.");
+            }
+        }
+
         SceneManager.LoadScene("Level_Tutorial_Choose");
     }
 
