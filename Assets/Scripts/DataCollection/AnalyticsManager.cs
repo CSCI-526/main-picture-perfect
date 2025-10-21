@@ -4,13 +4,12 @@ public class AnalyticsManager : MonoBehaviour
 {
     public static AnalyticsManager Instance;
 
-    [Header("Gameplay Metrics")]
     public int bulletsFired;
     public int freezeHits;
     public int moveHits;
     public int npcsFrozen;
     public int respawnCount;
-    public int npcDeaths;
+    public int npcDeaths;// name is off: now means: death caused by health = 0;
     public bool tutorialCompleted;
 
     private void Awake()
