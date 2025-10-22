@@ -107,7 +107,7 @@ public class PauseMenuManager : MonoBehaviour
             }
         }
 
-        SceneManager.LoadScene("Level_Tutorial_Choose");
+        SceneManager.LoadScene("StartMenuScene");
     }
 
     public void OnSensitivityChanged(float value)
