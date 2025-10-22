@@ -11,6 +11,8 @@ public class AnalyticsManager : MonoBehaviour
     public int respawnCount;
     public int npcDeaths;// name is off: now means: death caused by health = 0;
     public bool tutorialCompleted;
+    private float sessionStartTime;
+
 
     private void Awake()
     {
@@ -40,6 +42,7 @@ public class AnalyticsManager : MonoBehaviour
         respawnCount = 0;
         npcDeaths = 0;
         tutorialCompleted = false;
+        sessionStartTime = Time.time;
     }
 
 
@@ -76,5 +79,10 @@ public class AnalyticsManager : MonoBehaviour
     public void CompleteTutorial()
     {
         tutorialCompleted = true;
+    }
+
+    public float GetSessionDuration()
+    {
+        return Time.time - sessionStartTime;
     }
 }

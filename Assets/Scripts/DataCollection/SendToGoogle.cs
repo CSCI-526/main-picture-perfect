@@ -31,7 +31,7 @@ public class SendToGoogle : MonoBehaviour
         _respawnCount = AnalyticsManager.Instance.respawnCount;
         _npcDeaths = AnalyticsManager.Instance.npcDeaths;
         _tutorialCompleted = AnalyticsManager.Instance.tutorialCompleted;
-        _sessionTime = Time.timeSinceLevelLoad;
+        _sessionTime = AnalyticsManager.Instance.GetSessionDuration();
 
         StartCoroutine(Post(
             _sessionID.ToString(),
