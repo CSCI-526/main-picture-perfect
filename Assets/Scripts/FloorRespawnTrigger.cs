@@ -38,7 +38,7 @@ public class FloorRespawnTrigger : MonoBehaviour
         if (rm != null)
         {
             if (AnalyticsManager.Instance != null){
-                AnalyticsManager.Instance.RecordCauseOfDeath("Floor Death");
+                AnalyticsManager.Instance.RecordFallingDeath();
             }
             rm.Respawn();
         }

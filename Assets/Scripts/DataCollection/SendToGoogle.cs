@@ -18,7 +18,7 @@ public class SendToGoogle : MonoBehaviour
     private float _sessionTime;
     private int _furthestCheckpoint; 
     private int _platformSpentMostTimeOn;
-    private int _causeOfDeath; 
+    private int _fallingDeath; 
 
     private void Awake()
     {
@@ -37,7 +37,7 @@ public class SendToGoogle : MonoBehaviour
         _sessionTime = AnalyticsManager.Instance.GetSessionDuration();
         _furthestCheckpoint = AnalyticsManager.Instance.furthestCheckpoint; 
         _platformSpentMostTimeOn = AnalyticsManager.Instance.platformSpentMostTimeOn;
-        _causeOfDeath = AnalyticsManager.Instance.causeOfDeath; 
+        _fallingDeath = AnalyticsManager.Instance.fallingDeath; 
 
         StartCoroutine(Post(
             _sessionID.ToString(),
@@ -50,7 +50,7 @@ public class SendToGoogle : MonoBehaviour
             _sessionTime.ToString("F2"),
             _furthestCheckpoint.ToString(), 
             _platformSpentMostTimeOn.ToString(),
-            _causeOfDeath.ToString(),
+            _fallingDeath.ToString(),
             _tutorialCompleted ? "Yes" : "No"
         ));
     }
@@ -59,7 +59,7 @@ public class SendToGoogle : MonoBehaviour
         string sessionID, string bulletsFired, string freezeHits, string moveHits,
         string npcsFrozen, string respawnCount, string npcDeaths,
         string sessionTime, string tutorialCompleted, string furthestCheckpoint, 
-        string platformSpentMostTimeOn, string causeOfDeath)
+        string platformSpentMostTimeOn, string fallingDeath)
     {
         WWWForm form = new WWWForm();
         form.AddField("entry.694186398", sessionID);
@@ -73,7 +73,7 @@ public class SendToGoogle : MonoBehaviour
         form.AddField("entry.751980840", tutorialCompleted);
         form.AddField("entry.223699066", furthestCheckpoint);
         form.AddField("entry.273042120", platformSpentMostTimeOn);
-        form.AddField("entry.2098620278", causeOfDeath);
+        form.AddField("entry.2098620278", fallingDeath);
 
         using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
         {

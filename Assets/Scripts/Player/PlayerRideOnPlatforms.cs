@@ -10,6 +10,9 @@ public class PlayerRideOnPlatforms : MonoBehaviour
     public float minUpNormal = 0.55f;      //Enforces that surfaces have to be relatively flat
     public LayerMask groundMask = ~0;
 
+    public float platformTimer = 0f;
+    public float maxPlatformTime = 0f; 
+    public int platformCounter = 0; 
     //True = Detection of valid platform on current frame
     public bool supportedThisFrame { get; private set; }
 
@@ -30,11 +33,26 @@ public class PlayerRideOnPlatforms : MonoBehaviour
         {
             current = hit.collider.GetComponentInParent<PlatformMotion>();  //Tries to fetch PlatformMotion
             supportedThisFrame = true;
+
+            // Start Platform timer
+            platformTimer = 0f; 
+            platformCounter++; 
         }
         else    //No platform detected
         {
             current = null;
             supportedThisFrame = false;
+            platformTimer -= Time.fixedDeltaTime; 
+
+            // End platform timer, see if it's greater than the previous best platform time
+            if (platformTimer > maxPlatformTime) 
+            {
+                maxPlatformTime = platformTimer; 
+                if (AnalyticsManager.Instance != null){
+                    AnalyticsManager.Instance.RecordPlatformSpentMostTimeOn(platformCounter);
+                }
+            }
+            platformTimer = 0f; 
         }
 
         //If on a moving platform, add its world-space delta

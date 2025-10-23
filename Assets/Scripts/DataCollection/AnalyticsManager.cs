@@ -13,7 +13,7 @@ public class AnalyticsManager : MonoBehaviour
     public bool tutorialCompleted;
     public int furthestCheckpoint; 
     public int platformSpentMostTimeOn; 
-    public int causeOfDeath; 
+    public int fallingDeath; 
     private float sessionStartTime;
 
 
@@ -47,7 +47,7 @@ public class AnalyticsManager : MonoBehaviour
         tutorialCompleted = false;
         furthestCheckpoint = 0;
         platformSpentMostTimeOn = 0; 
-        causeOfDeath = 0; 
+        fallingDeath = 0; 
         sessionStartTime = Time.time;
     }
 
@@ -102,14 +102,8 @@ public class AnalyticsManager : MonoBehaviour
         furthestCheckpoint++; 
     }
 
-    public void RecordCauseOfDeath(string deathType)
+    public void RecordFallingDeath()
     {
-        if (deathType == "Bullet")
-        {
-            causeOfDeath = 1
-        } else {
-            // Caused by falling off platform
-            causeOfDeath = 2
-        }
+        fallingDeath++; 
     }
 }
