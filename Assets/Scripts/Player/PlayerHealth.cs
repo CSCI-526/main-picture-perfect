@@ -37,6 +37,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHits >= maxHits){
             if (AnalyticsManager.Instance != null){
                 AnalyticsManager.Instance.RecordNPCDeath();
+                AnalyticsManager.Instance.RecordCauseOfDeath("Bullet");
             }
             Respawn();
         }

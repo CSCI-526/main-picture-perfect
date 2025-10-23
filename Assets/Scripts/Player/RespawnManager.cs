@@ -23,6 +23,9 @@ public class RespawnManager : MonoBehaviour
     public void SetSpawn(Transform t)   //Sets new spawn point (needed if we want to implement checkpoints)
     {
         currentSpawn = t;
+        if (AnalyticsManager.Instance != null){
+            AnalyticsManager.Instance.IncreaseFurthestCheckpoint();
+        }
     }
 
     public void Respawn() {

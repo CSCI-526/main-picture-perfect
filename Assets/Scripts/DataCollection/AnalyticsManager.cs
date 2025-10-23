@@ -97,9 +97,9 @@ public class AnalyticsManager : MonoBehaviour
         platformSpentMostTimeOn = platform; 
     }
 
-    public void RecordFurthestCheckpoint(int checkpoint)
+    public void IncreaseFurthestCheckpoint()
     {
-        furthestCheckpoint = checkpoint; 
+        furthestCheckpoint++; 
     }
 
     public void RecordCauseOfDeath(string deathType)
