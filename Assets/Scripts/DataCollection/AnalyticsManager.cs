@@ -11,6 +11,9 @@ public class AnalyticsManager : MonoBehaviour
     public int respawnCount;
     public int npcDeaths;// name is off: now means: death caused by health = 0;
     public bool tutorialCompleted;
+    public int furthestCheckpoint; 
+    public int platformSpentMostTimeOn; 
+    public int causeOfDeath; 
     private float sessionStartTime;
 
 
@@ -42,6 +45,9 @@ public class AnalyticsManager : MonoBehaviour
         respawnCount = 0;
         npcDeaths = 0;
         tutorialCompleted = false;
+        furthestCheckpoint = 0;
+        platformSpentMostTimeOn = 0; 
+        causeOfDeath = 0; 
         sessionStartTime = Time.time;
     }
 
@@ -84,5 +90,26 @@ public class AnalyticsManager : MonoBehaviour
     public float GetSessionDuration()
     {
         return Time.time - sessionStartTime;
+    }
+
+    public void RecordPlatformSpentMostTimeOn(int platform)
+    {
+        platformSpentMostTimeOn = platform; 
+    }
+
+    public void RecordFurthestCheckpoint(int checkpoint)
+    {
+        furthestCheckpoint = checkpoint; 
+    }
+
+    public void RecordCauseOfDeath(string deathType)
+    {
+        if (deathType == "Bullet")
+        {
+            causeOfDeath = 1
+        } else {
+            // Caused by falling off platform
+            causeOfDeath = 2
+        }
     }
 }

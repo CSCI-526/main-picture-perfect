@@ -16,6 +16,9 @@ public class SendToGoogle : MonoBehaviour
     private int _npcDeaths;
     private bool _tutorialCompleted;
     private float _sessionTime;
+    private int _furthestCheckpoint; 
+    private int _platformSpentMostTimeOn;
+    private int _causeOfDeath; 
 
     private void Awake()
     {
@@ -32,6 +35,9 @@ public class SendToGoogle : MonoBehaviour
         _npcDeaths = AnalyticsManager.Instance.npcDeaths;
         _tutorialCompleted = AnalyticsManager.Instance.tutorialCompleted;
         _sessionTime = AnalyticsManager.Instance.GetSessionDuration();
+        _furthestCheckpoint = AnalyticsManager.Instance.furthestCheckpoint; 
+        _platformSpentMostTimeOn = AnalyticsManager.Instance.platformSpentMostTimeOn;
+        _causeOfDeath = AnalyticsManager.Instance.causeOfDeath; 
 
         StartCoroutine(Post(
             _sessionID.ToString(),
@@ -42,6 +48,9 @@ public class SendToGoogle : MonoBehaviour
             _respawnCount.ToString(),
             _npcDeaths.ToString(),
             _sessionTime.ToString("F2"),
+            _furthestCheckpoint.ToString(), 
+            _platformSpentMostTimeOn.ToString(),
+            _causeOfDeath.ToString(),
             _tutorialCompleted ? "Yes" : "No"
         ));
     }
@@ -49,7 +58,8 @@ public class SendToGoogle : MonoBehaviour
     private IEnumerator Post(
         string sessionID, string bulletsFired, string freezeHits, string moveHits,
         string npcsFrozen, string respawnCount, string npcDeaths,
-        string sessionTime, string tutorialCompleted)
+        string sessionTime, string tutorialCompleted, string furthestCheckpoint, 
+        string platformSpentMostTimeOn, string causeOfDeath)
     {
         WWWForm form = new WWWForm();
         form.AddField("entry.694186398", sessionID);
@@ -61,7 +71,9 @@ public class SendToGoogle : MonoBehaviour
         form.AddField("entry.1189061886", npcDeaths);
         form.AddField("entry.1858668493", sessionTime);
         form.AddField("entry.751980840", tutorialCompleted);
-
+        form.AddField("entry.223699066", furthestCheckpoint);
+        form.AddField("entry.273042120", platformSpentMostTimeOn);
+        form.AddField("entry.2098620278", causeOfDeath);
 
         using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
         {
