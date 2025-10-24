@@ -82,8 +82,9 @@ public class SendToGoogle : MonoBehaviour
             if (www.result != UnityWebRequest.Result.Success)
                 Debug.Log(www.error);
             else
-                Debug.Log($"Data uploaded: Bullets={_bulletsFired}, Respawns={_respawnCount}, Deaths={_npcDeaths}");
-
+                Debug.Log($"Data uploaded: sessionID={_sessionID}, Bullets={_bulletsFired}, Freeze Hits={_freezeHits}, NPC Freeze{_npcsFrozen}");
+                Deub.Log($"Respawn Count={_respawnCount}, NPC Deaths={_npcDeaths}, Tutorial Completed={_tutorialCompleted}, Session Time={_sessionTime}, ");
+                Deub.Log($"Furthest Checkpoint={_furthestCheckpoint}, Platform Spent Most Time On={_platformSpentMostTimeOn}, Falling Death={_fallingDeath}");
                 Debug.Log("Form upload complete!");
         }
     }
