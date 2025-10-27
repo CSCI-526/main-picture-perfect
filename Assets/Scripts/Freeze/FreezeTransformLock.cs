@@ -37,7 +37,7 @@ public class FreezeTransformLock : MonoBehaviour
         {
             if (!snapshotTaken)
             {
-                SnapshotNow(); // 用统一函数代替重复代码
+                SnapshotNow(); 
             }
 
             if (lockPosition)
