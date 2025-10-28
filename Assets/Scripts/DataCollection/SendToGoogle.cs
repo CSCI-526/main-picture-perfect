@@ -47,11 +47,11 @@ public class SendToGoogle : MonoBehaviour
             _npcsFrozen.ToString(),
             _respawnCount.ToString(),
             _npcDeaths.ToString(),
-            _sessionTime.ToString("F2"),
-            _furthestCheckpoint.ToString(), 
+            _sessionTime.ToString("F2"), 
+            _tutorialCompleted ? "Yes" : "No",
+            _furthestCheckpoint.ToString(),
             _platformSpentMostTimeOn.ToString(),
-            _fallingDeath.ToString(),
-            _tutorialCompleted ? "Yes" : "No"
+            _fallingDeath.ToString()
         ));
     }
 
@@ -82,9 +82,6 @@ public class SendToGoogle : MonoBehaviour
             if (www.result != UnityWebRequest.Result.Success)
                 Debug.Log(www.error);
             else
-                Debug.Log($"Data uploaded: sessionID={_sessionID}, Bullets={_bulletsFired}, Freeze Hits={_freezeHits}, NPC Freeze{_npcsFrozen}");
-                Debug.Log($"Respawn Count={_respawnCount}, NPC Deaths={_npcDeaths}, Tutorial Completed={_tutorialCompleted}, Session Time={_sessionTime}, ");
-                Debug.Log($"Furthest Checkpoint={_furthestCheckpoint}, Platform Spent Most Time On={_platformSpentMostTimeOn}, Falling Death={_fallingDeath}");
                 Debug.Log("Form upload complete!");
         }
     }
