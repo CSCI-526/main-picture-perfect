@@ -3,10 +3,8 @@ using UnityEngine;
 public class TutorialFlashSync : MonoBehaviour
 {
     
-    public Renderer gunRenderer;
-    public Freezable target;
-
-    
+    public Renderer gunRenderer;       
+    public Freezable target;      
     public Color flashColor = Color.red;
     public float flashSpeed = 2f;
 
@@ -24,7 +22,6 @@ public class TutorialFlashSync : MonoBehaviour
         if (target != null)
             targetRenderer = target.GetComponentInChildren<Renderer>();
 
-        
         if (gunRenderer != null)
         {
             gunRenderer.material = new Material(gunRenderer.material);
@@ -43,18 +40,18 @@ public class TutorialFlashSync : MonoBehaviour
         if (target == null || targetRenderer == null || gunRenderer == null)
             return;
 
+        
         if (target.IsFrozen && !tutorialComplete)
         {
             tutorialComplete = true;
 
-           
+            
             gunRenderer.material.color = gunBaseColor;
-            targetRenderer.material.color = targetBaseColor;
 
-           
+            Debug.Log("[Tutorial] Target frozen, stop flashing and restore gun color");
+            return;
         }
 
-        
         if (!tutorialComplete)
         {
             t += Time.deltaTime * flashSpeed;
