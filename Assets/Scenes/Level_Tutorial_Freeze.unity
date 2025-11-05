@@ -1316,6 +1316,9 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
+  platformTimer: 0
+  maxPlatformTime: 0
+  platformCounter: 0
 --- !u!114 &857864122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1678,6 +1681,7 @@ GameObject:
   - component: {fileID: 1172995451}
   - component: {fileID: 1172995453}
   - component: {fileID: 1172995452}
+  - component: {fileID: 1172995454}
   m_Layer: 6
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -1760,6 +1764,28 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1172995454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172995450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98382c3dd34464458ce032ed7d73ac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visible: 1
+  color: {r: 0, g: 0, b: 0, a: 0.20392157}
+  dotRadius: 3
+  ringRadius: 70
+  ringThickness: 1
+  scaleWithResolution: 1
+  referenceHeight: 1080
+  biggerKey: 93
+  smallerKey: 91
+  step: 2
 --- !u!1 &1266351144
 GameObject:
   m_ObjectHideFlags: 0
@@ -3609,6 +3635,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1219027835874594062, guid: d449ba3f1488345f5beae8e2b99d24be, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219027835874594062, guid: d449ba3f1488345f5beae8e2b99d24be, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1219027835874594062, guid: d449ba3f1488345f5beae8e2b99d24be, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7171032971968313200, guid: d449ba3f1488345f5beae8e2b99d24be, type: 3}
       propertyPath: m_Name
       value: PauseMenu
@@ -3651,6 +3689,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7411543283574941598, guid: d449ba3f1488345f5beae8e2b99d24be, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660518413514947959, guid: d449ba3f1488345f5beae8e2b99d24be, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660518413514947959, guid: d449ba3f1488345f5beae8e2b99d24be, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
