@@ -182,7 +182,7 @@ MonoBehaviour:
   remaining: 0
   yA: 5
   yB: 15
-  speed: 8
+  speed: 5
   waitAtEnds: 0.25
 --- !u!114 &4012443537361167060
 MonoBehaviour:

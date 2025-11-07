@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   lifeTime: 2
-  freezeDuration: 3
+  freezeDuration: 6
   moveImpulse: 6
   hittableLayers:
     serializedVersion: 2

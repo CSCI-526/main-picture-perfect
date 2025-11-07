@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     public float lifeTime = 2.0f;      // Bullet lifetime in seconds
 
     [Header("Freeze")]
-    public float freezeDuration = 2.5f; // How long to freeze hit targets
+    public float freezeDuration = 5.0f; // How long to freeze hit targets
 
     [Header("Move")]
     public float moveImpulse = 6f;

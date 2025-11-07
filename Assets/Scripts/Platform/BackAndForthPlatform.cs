@@ -14,7 +14,7 @@ public class BackAndForthPlatform : Freezable
     public float xB = -40f;    //x-point 2
 
     [Header("Motion")]
-    public float speed = 10f;          
+    public float speed = 5f;          
     public float waitAtEnds = 0.25f;   //how long to pause for at each x-point
 
     Rigidbody rb;

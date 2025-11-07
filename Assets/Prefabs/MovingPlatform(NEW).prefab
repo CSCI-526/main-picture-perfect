@@ -168,7 +168,7 @@ MonoBehaviour:
   remaining: 0
   xA: 34
   xB: -34
-  speed: 11
+  speed: 5
   waitAtEnds: 0.25
 --- !u!114 &8186840833350011889
 MonoBehaviour:
