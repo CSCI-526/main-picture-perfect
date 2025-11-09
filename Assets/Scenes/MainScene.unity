@@ -4182,9 +4182,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visible: 1
   color: {r: 0, g: 0, b: 0, a: 0.627451}
-  dotRadius: 10
+  dotRadius: 7
   ringRadius: 75
-  ringThickness: 10
+  ringThickness: 5
   scaleWithResolution: 1
   referenceHeight: 1080
   biggerKey: 93

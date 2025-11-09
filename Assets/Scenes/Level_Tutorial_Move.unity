@@ -1838,10 +1838,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visible: 1
-  color: {r: 0, g: 0, b: 0, a: 0.20392157}
-  dotRadius: 3
-  ringRadius: 70
-  ringThickness: 1
+  color: {r: 0, g: 0, b: 0, a: 0.627451}
+  dotRadius: 7
+  ringRadius: 75
+  ringThickness: 5
   scaleWithResolution: 1
   referenceHeight: 1080
   biggerKey: 93
