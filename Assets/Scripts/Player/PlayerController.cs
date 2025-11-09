@@ -6,56 +6,54 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    public float moveSpeed = 5f;          //Move speed
+    public float moveSpeed = 5f;
 
     [Header("Jump (no hold needed)")]
-    public float jumpHeight = 3.5f;       //Jump height (m)
-    public float coyoteTime = 0.10f;      //Grace after leaving ground
-    public float jumpBufferTime = 0.12f;  //Grace after tap before landing
-    public float groundedStick = -2f;     
+    public float jumpHeight = 3.5f;
+    public float coyoteTime = 0.10f;
+    public float jumpBufferTime = 0.12f;
+    public float groundedStick = -2f;
 
     [Header("Gravity")]
-    public float gravity = -9.81f;        
-    public float gravityScale = 2.0f;     
+    public float gravity = -9.81f;
+    public float gravityScale = 2.0f;
 
     [Header("Grounding Check")]
-    public LayerMask groundMask = ~0;     //Layers considered ground/platform
-    public float sphereGroundExtra = 0.25f; //How far below feet we check
+    public LayerMask groundMask = ~0;
+    public float sphereGroundExtra = 0.25f;
+
+    [Header("Air Control")]
+    [Range(0f, 1f)] public float airControlFactor = 0.7f;// 0 = no air control, 1 = full control
+    public float landingSmoothTime = 0.1f;// time to smooth horizontal velocity when landing
 
     [Header("Mouse Look")]
     public Transform cameraTransform;
     public float mouseSensitivity = 200f;
 
     private CharacterController controller;
-    private PlayerRideOnPlatforms rider;   
-    private Vector3 velocity;            
+    private PlayerRideOnPlatforms rider;
+    private Vector3 velocity;
+    private Vector3 currentHorizontalVelocity;
     private float xRotation = 0f;
 
-    //Jump helpers
     private float lastGroundedTime = -999f;
     private float lastJumpPressedTime = -999f;
-    private bool  jumpConsumed;
-    //Record of last ground move direction for air control so that we can retain momentum
-    private Vector3 lastGroundMoveDir = Vector3.zero;
+    private bool jumpConsumed;
+    private bool wasGroundedLastFrame;
 
-
-void Awake()
-{
-    mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", mouseSensitivity);
-}
+    void Awake()
+    {
+        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", mouseSensitivity);
+    }
 
     void Start()
     {
-        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", mouseSensitivity);
         controller = GetComponent<CharacterController>();
         rider = GetComponent<PlayerRideOnPlatforms>();
-
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-
-        //Preserve existing camera init
         float startX = cameraTransform.localEulerAngles.x;
         if (startX > 180f) startX -= 360f;
         xRotation = Mathf.Clamp(startX, -90f, 90f);
@@ -70,20 +68,17 @@ void Awake()
 
     void HandleMovement()
     {
-        //Capture jump tap
         if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.Space))
             lastJumpPressedTime = Time.time;
 
-        //Ground detection
         bool grounded = controller.isGrounded;
         if (!grounded)
         {
-            grounded = SphereGround(out _); //Catch moving platform
+            grounded = SphereGround(out _);
             if (!grounded && rider != null && rider.supportedThisFrame)
-                grounded = true;            //Rider says we're supported
+                grounded = true;
         }
 
-        //Ground Handling
         if (grounded)
         {
             lastGroundedTime = Time.time;
@@ -91,51 +86,48 @@ void Awake()
             if (velocity.y < 0f) velocity.y = groundedStick;
         }
 
-        // 4) Buffered jump + coyote time (no hold required)
-        float effectiveGravity = gravity * gravityScale; // negative
-        bool coyoteOk = (Time.time - lastGroundedTime)  <= coyoteTime;
+        float effectiveGravity = gravity * gravityScale;
+        bool coyoteOk = (Time.time - lastGroundedTime) <= coyoteTime;
         bool bufferOk = (Time.time - lastJumpPressedTime) <= jumpBufferTime;
         if (!jumpConsumed && coyoteOk && bufferOk)
         {
-            // v0 = sqrt(2 * g * h), with g as positive magnitude
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * effectiveGravity);
             jumpConsumed = true;
-            lastJumpPressedTime = -999f; // clear buffer
+            lastJumpPressedTime = -999f;
         }
 
-        //Gravity
         velocity.y += effectiveGravity * Time.deltaTime;
 
-        //Horizontal movement
-        Vector3 horiz = Vector3.zero;
-
+        // 获取移动输入
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
         Vector3 moveInput = (transform.right * x + transform.forward * z).normalized;
+        Vector3 targetHorizontal = moveInput * moveSpeed;
 
-        // Grounded: Change direction immediately
-        // In air: Retain last ground direction for air control
+        // Smooth horizontal velocity
         if (grounded)
         {
-            lastGroundMoveDir = moveInput;
-            horiz = moveInput * moveSpeed;
+            // switching from air to ground
+            if (!wasGroundedLastFrame)
+                currentHorizontalVelocity = Vector3.Lerp(currentHorizontalVelocity, targetHorizontal, Time.deltaTime / landingSmoothTime);
+            else
+                currentHorizontalVelocity = targetHorizontal;
         }
         else
         {
-            // Last ground direction for air control
-            horiz = lastGroundMoveDir * moveSpeed;
+            // air control
+            currentHorizontalVelocity = Vector3.Lerp(currentHorizontalVelocity, targetHorizontal * airControlFactor, 0.1f);
         }
 
-
-        //Horizontal and Vertical Movement
-        Vector3 totalVelocity = horiz + Vector3.up * velocity.y;
+        // Apply movement
+        Vector3 totalVelocity = currentHorizontalVelocity + Vector3.up * velocity.y;
         controller.Move(totalVelocity * Time.deltaTime);
+
+        wasGroundedLastFrame = grounded;
     }
 
-    //Ground detection function
     bool SphereGround(out RaycastHit hit)
     {
-        // Sphere cast right under the feet—far more stable on moving/uneven platforms
         Vector3 feet = transform.position + Vector3.up * 0.1f;
         float radius = Mathf.Max(controller.radius * 0.95f, 0.2f);
         return Physics.SphereCast(

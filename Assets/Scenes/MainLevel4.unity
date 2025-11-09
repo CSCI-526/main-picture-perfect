@@ -1848,6 +1848,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   sphereGroundExtra: 0.25
+  airControlFactor: 0.73
+  landingSmoothTime: 0.1
   cameraTransform: {fileID: 799965289}
   mouseSensitivity: 200
 --- !u!143 &376619666
