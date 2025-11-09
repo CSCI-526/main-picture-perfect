@@ -12,7 +12,7 @@ public class LevelChooseUI : MonoBehaviour
     {
         if (AnalyticsManager.Instance != null)
             AnalyticsManager.Instance.ResetData();
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("Level_Choose");
     }
 
     public void BackToMenu()

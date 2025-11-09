@@ -20,6 +20,6 @@ public class TutorialChooseUI : MonoBehaviour
 
     public void BackToLevelChoose()
     {
-        SceneManager.LoadScene("Level_Choose");
+        SceneManager.LoadScene("Mode_Choose");
     }
 }

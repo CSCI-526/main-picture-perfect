@@ -6,7 +6,7 @@ public class MainMenuUI : MonoBehaviour
     public void StartGame()
     {
         AnalyticsManager.Instance.ResetData();
-        SceneManager.LoadScene("Level_Choose"); 
+        SceneManager.LoadScene("Mode_Choose"); 
     }
 
     public void OpenSettings()
