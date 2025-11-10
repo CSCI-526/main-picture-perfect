@@ -3566,7 +3566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8435581171763694623, guid: 44176c7d642f37d40b886da8da5119b2, type: 3}
       propertyPath: speed
-      value: 100
+      value: 95
       objectReference: {fileID: 0}
     - target: {fileID: 8435581171763694623, guid: 44176c7d642f37d40b886da8da5119b2, type: 3}
       propertyPath: freezeDuration
@@ -4189,6 +4189,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   sphereGroundExtra: 0.25
+  airControlFactor: 0.7
+  landingSmoothTime: 0.1
   cameraTransform: {fileID: 1511137780}
   mouseSensitivity: 200
 --- !u!143 &1725504156

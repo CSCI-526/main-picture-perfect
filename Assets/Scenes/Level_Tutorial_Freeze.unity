@@ -2291,7 +2291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8435581171763694623, guid: 44176c7d642f37d40b886da8da5119b2, type: 3}
       propertyPath: speed
-      value: 100
+      value: 95
       objectReference: {fileID: 0}
     - target: {fileID: 8435581171763694623, guid: 44176c7d642f37d40b886da8da5119b2, type: 3}
       propertyPath: freezeDuration
@@ -2774,7 +2774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiPrompt: {fileID: 1218140063}
-  nextLevelName: Level_Tutorial_Move
+  nextLevelName: Level_Tutorial_NPC
 --- !u!65 &1816726144
 BoxCollider:
   m_ObjectHideFlags: 0
