@@ -478,6 +478,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
+      propertyPath: cycles
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
       propertyPath: distance0
       value: 35
       objectReference: {fileID: 0}
