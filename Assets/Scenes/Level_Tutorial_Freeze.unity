@@ -4091,9 +4091,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2415584945139730651, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
+      propertyPath: m_text
+      value: 'Blue objects are FREEZABLE with bullet
+
+
+        Use WASD/Space to
+        move through platforms
+
+
+        If the sensitivity too high: Change in menu
+
+
+        Press
+        ''M'' to return to menu'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415584945139730651, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
+      propertyPath: m_fontSize
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415584945139730651, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4800578052488994887, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
       propertyPath: m_Name
       value: TutorialPoster
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694955267875817361, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -235.7
       objectReference: {fileID: 0}
     - target: {fileID: 8319026079075690134, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
       propertyPath: m_Camera
