@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8009845514955520606}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.62, y: 17.300001, z: -192.46}
   m_LocalScale: {x: 10, y: 0.19999999, z: 10}
   m_ConstrainProportionsScale: 0
@@ -107,8 +107,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.1, y: 3, z: 1.1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.1, y: 6.1330843, z: 1.1}
+  m_Center: {x: 0, y: 1.5665417, z: 0}
 --- !u!54 &1709759323942074375
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -164,14 +164,14 @@ MonoBehaviour:
   fx: {fileID: 0}
   impulseFlashSeconds: 0.35
   useLocalAxes: 0
-  axis0: {x: 0, y: 0, z: -1}
-  distance0: 137
-  useAxis1: 0
-  axis1: {x: 0, y: 0, z: 0}
-  distance1: 20
+  axis0: {x: 3.69, y: -2.1, z: 0}
+  distance0: 30.3
+  useAxis1: 1
+  axis1: {x: -4.71, y: -1.06, z: 1}
+  distance1: 39.5
   sequentialCorner: 1
   moveSpeed: 12
-  cycles: 3
+  cycles: 1
   snapToOriginAfter: 1
   baseImpulse: 6
   maxSpeed: 0
