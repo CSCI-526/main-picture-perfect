@@ -204,8 +204,23 @@ PrefabInstance:
       value: 'Green objects are MOVEABLE with bullet
 
 
-        Press ''M'' to return
-        to menu'
+        Use WASD/Space to
+        move through platforms
+
+
+        If the sensitivity too high: Change in menu
+
+
+        Press
+        ''M'' to return to menu'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415584945139730651, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
+      propertyPath: m_fontSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415584945139730651, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4800578052488994887, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
       propertyPath: m_Name
@@ -217,11 +232,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6694955267875817361, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -23.9
+      value: -22.9
       objectReference: {fileID: 0}
     - target: {fileID: 6694955267875817361, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -212.3
+      value: -203.5
       objectReference: {fileID: 0}
     - target: {fileID: 9063529909306948224, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
       propertyPath: m_LocalPosition.x
