@@ -497,6 +497,22 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
+      propertyPath: axis0.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
+      propertyPath: axis0.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
+      propertyPath: axis0.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
+      propertyPath: useAxis1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
       propertyPath: distance0
       value: 35
       objectReference: {fileID: 0}
