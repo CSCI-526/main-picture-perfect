@@ -97,14 +97,11 @@ public class PauseMenuManager : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-        if (SceneManager.GetActiveScene().name == "MainScene")
+        sender = FindObjectOfType<SendToGoogle>();
+        if (sender != null && AnalyticsManager.Instance != null)
         {
-            sender = FindObjectOfType<SendToGoogle>();
-            if (sender != null && AnalyticsManager.Instance != null)
-            {
-                sender.Send();
-                Debug.Log("data upload before returning to menu.");
-            }
+            sender.Send();
+            Debug.Log("data upload before returning to menu.");
         }
 
         SceneManager.LoadScene("StartMenuScene");
