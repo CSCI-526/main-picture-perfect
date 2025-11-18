@@ -1890,6 +1890,7 @@ MonoBehaviour:
   biggerKey: 93
   smallerKey: 91
   step: 2
+  onlyWhenPlaying: 1
 --- !u!1 &1218140063
 GameObject:
   m_ObjectHideFlags: 0
@@ -2774,7 +2775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiPrompt: {fileID: 1218140063}
-  nextLevelName: Level_Tutorial_NPC
+  nextLevelName: Level_Tutorial_Move
 --- !u!65 &1816726144
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4096,16 +4097,23 @@ PrefabInstance:
       value: 'Blue objects are FREEZABLE with bullet
 
 
-        Press ''M'' to return
-        to menu'
+        Use WASD/Space to
+        move through platforms
+
+
+        If the sensitivity too high: Change in menu
+
+
+        Press
+        ''M'' to return to menu'
       objectReference: {fileID: 0}
     - target: {fileID: 2415584945139730651, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
       propertyPath: m_fontSize
-      value: 3.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2415584945139730651, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
       propertyPath: m_fontSizeBase
-      value: 3.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4800578052488994887, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
       propertyPath: m_Name
@@ -4113,7 +4121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6694955267875817361, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -256
+      value: -243.8
       objectReference: {fileID: 0}
     - target: {fileID: 8319026079075690134, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
       propertyPath: m_Camera

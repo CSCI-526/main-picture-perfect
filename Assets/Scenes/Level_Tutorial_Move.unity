@@ -204,15 +204,11 @@ PrefabInstance:
       value: 'Green objects are MOVEABLE with bullet
 
 
-        Use WASD/Space to
-        move through platforms
+        They move randomly,
+        shoot them to explore their paths
 
 
-        If the sensitivity too high: Change in menu
-
-
-        Press
-        ''M'' to return to menu'
+        Press ''M'' to return to menu'
       objectReference: {fileID: 0}
     - target: {fileID: 2415584945139730651, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
       propertyPath: m_fontSize
@@ -236,7 +232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6694955267875817361, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -203.5
+      value: -207.5
       objectReference: {fileID: 0}
     - target: {fileID: 9063529909306948224, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2022,6 +2018,7 @@ MonoBehaviour:
   biggerKey: 93
   smallerKey: 91
   step: 2
+  onlyWhenPlaying: 1
 --- !u!1 &1302294042
 GameObject:
   m_ObjectHideFlags: 0
@@ -2237,7 +2234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiPrompt: {fileID: 710581373}
-  nextLevelName: Level_Tutorial_Freeze
+  nextLevelName: Level_Tutorial_NPC
 --- !u!65 &1375446862
 BoxCollider:
   m_ObjectHideFlags: 0

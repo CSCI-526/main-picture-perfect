@@ -601,7 +601,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 317, y: 92}
+  m_AnchoredPosition: {x: 317, y: 16}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &902537281
@@ -1046,7 +1046,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 318, y: 13}
+  m_AnchoredPosition: {x: 318, y: 92}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1199175741
@@ -1574,6 +1574,9 @@ MonoBehaviour:
   respawnCount: 0
   npcDeaths: 0
   tutorialCompleted: 0
+  furthestCheckpoint: 0
+  platformSpentMostTimeOn: 0
+  fallingDeath: 0
 --- !u!114 &1867886406
 MonoBehaviour:
   m_ObjectHideFlags: 0

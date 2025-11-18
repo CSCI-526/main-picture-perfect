@@ -10,15 +10,26 @@ Inherits from Freezable.cs to allow freezing.
 public class UpAndDownPlatform : Freezable
 {
     [Header("World Y positions to travel between")]
-    public float yA = 5f;   // y - point1
-    public float yB = 10f;   // y - point2
+    public float yA = 5f;   //y - point1
+    public float yB = 10f;  //y - point2
 
     [Header("Motion")]
     public float speed = 8f;
-    public float waitAtEnds = 0.50f;   // Seconds to wait at each end
+    public float waitAtEnds = 0.50f;   //Seconds to wait at each end
 
-    private int dir = 1;          // Direction: +1 = up, -1 = down
-    private float waitTimer = 0f; // Wait timer at each end
+    Rigidbody rb;
+    int dir = 1;              //+1 = up, -1 = down
+    float waitTimer = 0f;     //Wait timer at each end
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+        if (!rb) rb = gameObject.AddComponent<Rigidbody>();
+
+        rb.isKinematic = true;
+        rb.useGravity = false;
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
+    }
 
     void Start()
     {
@@ -26,36 +37,40 @@ public class UpAndDownPlatform : Freezable
         float dA = Mathf.Abs(p.y - yA);
         float dB = Mathf.Abs(p.y - yB);
 
-        // Initial position: snap to closest Y point
-        transform.position = new Vector3(p.x, dA <= dB ? yA : yB, p.z);
+        float startY = (dA <= dB) ? yA : yB;
+        Vector3 snapped = new Vector3(p.x, startY, p.z);
 
-        // Initial direction
-        dir = (Mathf.Abs(transform.position.y - yA) < 0.001f) ? +1 : -1;
+        rb.position = snapped;
+        transform.position = snapped;
+
+        dir = (Mathf.Abs(startY - yA) < 0.001f) ? +1 : -1;
     }
 
     protected override void Update()
     {
-        base.Update(); // Keep freeze timer ticking
+        //Keep freeze timer
+        base.Update();
+    }
 
-        if (IsFrozen)
-        {
-            return;
-        }
+    void FixedUpdate()
+    {
+        if (IsFrozen) return;
 
         if (waitTimer > 0f)
         {
-            waitTimer -= Time.deltaTime;
+            waitTimer -= Time.fixedDeltaTime;
             return;
         }
 
+        Vector3 pos = rb.position;
         float targetY = (dir > 0) ? yB : yA;
-        var pos = transform.position;
+        float step = speed * Time.fixedDeltaTime;
 
-        // Move towards target Y position
-        float newY = Mathf.MoveTowards(pos.y, targetY, speed * Time.deltaTime);
-        transform.position = new Vector3(pos.x, newY, pos.z);
+        float newY = Mathf.MoveTowards(pos.y, targetY, step);
+        Vector3 next = new Vector3(pos.x, newY, pos.z);
 
-        // Check if reached target
+        rb.MovePosition(next);
+
         if (Mathf.Abs(newY - targetY) <= 0.001f)
         {
             dir *= -1;
@@ -69,7 +84,7 @@ public class UpAndDownPlatform : Freezable
         var lockComponent = GetComponent<FreezeTransformLock>();
         if (lockComponent)
         {
-            lockComponent.SnapshotNow(); // Snapshot current transform state
+            lockComponent.SnapshotNow(); //Snapshot current transform state
         }
     }
 }

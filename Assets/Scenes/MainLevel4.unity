@@ -3012,7 +3012,7 @@ MonoBehaviour:
   remaining: 0
   yA: 10
   yB: 65
-  speed: 15
+  speed: 7
   waitAtEnds: 0.25
 --- !u!114 &582927012
 MonoBehaviour:
@@ -3881,6 +3881,7 @@ MonoBehaviour:
   biggerKey: 93
   smallerKey: 91
   step: 2
+  onlyWhenPlaying: 1
 --- !u!1 &802355662
 GameObject:
   m_ObjectHideFlags: 0

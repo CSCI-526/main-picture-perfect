@@ -23,6 +23,8 @@ public class CrosshairUI : MonoBehaviour
     int cDot, cRing, cThick;
     Color cCol;
 
+    public bool onlyWhenPlaying = true;
+
     void Update()
     {
         if (Input.GetKeyDown(biggerKey))  ringRadius += step;
@@ -32,6 +34,7 @@ public class CrosshairUI : MonoBehaviour
     void OnGUI()
     {
         if (!visible) return;
+        if (onlyWhenPlaying && (Time.timeScale <= 0.001f || Cursor.lockState != CursorLockMode.Locked || Cursor.visible)) return;
 
         float scale = scaleWithResolution ? (Screen.height / referenceHeight) : 1f;
         int dr = Mathf.Max(1, Mathf.RoundToInt(dotRadius * scale));
