@@ -3639,7 +3639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d574195847cbb4fbcb572c1df6c6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectMaterial: {fileID: 2100000, guid: cb4cb3cd50537634095459b18a8567c7, type: 2}
+  effectMaterial: {fileID: 2100000, guid: 05405cafb462c4b7a87449d53716b5b3, type: 2}
 --- !u!114 &2113901210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3849,7 +3849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d574195847cbb4fbcb572c1df6c6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectMaterial: {fileID: 2100000, guid: cb4cb3cd50537634095459b18a8567c7, type: 2}
+  effectMaterial: {fileID: 2100000, guid: 05405cafb462c4b7a87449d53716b5b3, type: 2}
 --- !u!114 &2144073052
 MonoBehaviour:
   m_ObjectHideFlags: 0

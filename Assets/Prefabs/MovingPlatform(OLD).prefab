@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6751901873983055930}
   - component: {fileID: 1252071054261252171}
   - component: {fileID: 4012443537361167060}
+  - component: {fileID: 1844737207236492726}
   m_Layer: 0
   m_Name: MovingPlatform(OLD)
   m_TagString: Untagged
@@ -32,9 +33,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2114913665172834127}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.35, y: -8.49, z: 40.18}
-  m_LocalScale: {x: 10, y: 0.19999999, z: 10}
+  m_LocalScale: {x: 15, y: 0.19999999, z: 15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -104,7 +105,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -182,7 +183,7 @@ MonoBehaviour:
   remaining: 0
   yA: 5
   yB: 15
-  speed: 5
+  speed: 8
   waitAtEnds: 0.25
 --- !u!114 &4012443537361167060
 MonoBehaviour:
@@ -196,3 +197,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0fa0ad8f08bfa48ab157c6cd706c40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1844737207236492726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114913665172834127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71d574195847cbb4fbcb572c1df6c6d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectMaterial: {fileID: 2100000, guid: 05405cafb462c4b7a87449d53716b5b3, type: 2}

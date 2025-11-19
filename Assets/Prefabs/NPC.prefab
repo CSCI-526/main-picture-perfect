@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4169085001779471996}
   - component: {fileID: 5296566309325108237}
   - component: {fileID: 1271392191143230136}
+  - component: {fileID: 6232885191918852712}
   m_Layer: 0
   m_Name: NPC
   m_TagString: NPC
@@ -66,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 892e538b4d915624bbe7408719958fb5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -178,10 +179,23 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6209281874112169365, guid: 80967e639067f2242b0a368e7d18f71f, type: 3}
   firePoint: {fileID: 5692379661933486009}
   player: {fileID: 0}
-  fireRate: 6
-  bulletSpeed: 35
-  attackRange: 70
-  lookRange: 50
+  fireRate: 20
+  bulletSpeed: 75
+  attackRange: 120
+  lookRange: 115
+--- !u!114 &6232885191918852712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7615147646617068985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71d574195847cbb4fbcb572c1df6c6d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectMaterial: {fileID: 2100000, guid: 05405cafb462c4b7a87449d53716b5b3, type: 2}
 --- !u!1 &8357015085885864223
 GameObject:
   m_ObjectHideFlags: 0

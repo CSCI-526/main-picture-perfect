@@ -33,7 +33,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990293239995923098}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -36.6, y: 2, z: 55.8}
   m_LocalScale: {x: 10, y: 0.19999999, z: 10}
   m_ConstrainProportionsScale: 0
@@ -181,9 +181,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFrozen: 0
   remaining: 0
-  yA: 10
-  yB: 65
-  speed: 30
+  yA: 11
+  yB: 13
+  speed: 15
   waitAtEnds: 0.25
 --- !u!114 &4340981406618570359
 MonoBehaviour:
@@ -209,4 +209,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d574195847cbb4fbcb572c1df6c6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectMaterial: {fileID: 2100000, guid: cb4cb3cd50537634095459b18a8567c7, type: 2}
+  effectMaterial: {fileID: 2100000, guid: 05405cafb462c4b7a87449d53716b5b3, type: 2}

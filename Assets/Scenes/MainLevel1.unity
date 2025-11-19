@@ -555,18 +555,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingPlatformUpDown (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 4790910405760254078, guid: 990a91e3b510a5449a3c738c1d08c33f, type: 3}
-      propertyPath: yA
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4790910405760254078, guid: 990a91e3b510a5449a3c738c1d08c33f, type: 3}
-      propertyPath: yB
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 4790910405760254078, guid: 990a91e3b510a5449a3c738c1d08c33f, type: 3}
-      propertyPath: speed
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 7213201476405494596, guid: 990a91e3b510a5449a3c738c1d08c33f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.2
@@ -3019,10 +3007,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2151832138768289539, guid: 6a2044b8c67678e4688ca8dd4d7c3287, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.986
-      objectReference: {fileID: 0}
     - target: {fileID: 5360234866348640625, guid: 6a2044b8c67678e4688ca8dd4d7c3287, type: 3}
       propertyPath: player
       value: 
