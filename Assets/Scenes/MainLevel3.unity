@@ -6955,42 +6955,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 790692587}
     m_Modifications:
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: cycles
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: axis0.x
-      value: -4.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: axis0.y
-      value: 0.74
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: axis0.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: axis1.x
-      value: 1.27
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: axis1.y
-      value: 0.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: useAxis1
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: distance0
-      value: 39.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: distance1
-      value: 42.7
-      objectReference: {fileID: 0}
     - target: {fileID: 5019752706637149772, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.52

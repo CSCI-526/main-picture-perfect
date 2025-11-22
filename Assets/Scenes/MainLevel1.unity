@@ -857,18 +857,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingPlatformUpDown (14)
       objectReference: {fileID: 0}
-    - target: {fileID: 4790910405760254078, guid: 990a91e3b510a5449a3c738c1d08c33f, type: 3}
-      propertyPath: yA
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4790910405760254078, guid: 990a91e3b510a5449a3c738c1d08c33f, type: 3}
-      propertyPath: yB
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4790910405760254078, guid: 990a91e3b510a5449a3c738c1d08c33f, type: 3}
-      propertyPath: speed
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 7213201476405494596, guid: 990a91e3b510a5449a3c738c1d08c33f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -34.3

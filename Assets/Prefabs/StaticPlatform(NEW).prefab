@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 23d52ae02f486d545aa243eae1fbe8c3, type: 2}
+  - {fileID: 2100000, guid: 6f0ef6ec7f4f346a186452b99a59c2ec, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -164,11 +164,11 @@ MonoBehaviour:
   fx: {fileID: 0}
   impulseFlashSeconds: 0.35
   useLocalAxes: 0
-  axis0: {x: 3.69, y: -2.1, z: 0}
-  distance0: 30.3
+  axis0: {x: 1, y: 0, z: 0}
+  distance0: 20
   useAxis1: 1
-  axis1: {x: -4.71, y: -1.06, z: 1}
-  distance1: 39.5
+  axis1: {x: 0, y: 0, z: -1}
+  distance1: 41
   sequentialCorner: 1
   moveSpeed: 12
   cycles: 1
@@ -187,4 +187,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d574195847cbb4fbcb572c1df6c6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectMaterial: {fileID: 2100000, guid: cb4cb3cd50537634095459b18a8567c7, type: 2}
+  effectMaterial: {fileID: 2100000, guid: e4f9c7bcae5004c908845f3d7f06a9f5, type: 2}

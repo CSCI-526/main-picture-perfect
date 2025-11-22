@@ -548,7 +548,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 892e538b4d915624bbe7408719958fb5, type: 2}
+  - {fileID: 2100000, guid: e4f9c7bcae5004c908845f3d7f06a9f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1834,46 +1834,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 790692587}
     m_Modifications:
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: cycles
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: axis0.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: axis0.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: axis0.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: axis1.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: axis1.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: axis1.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: useAxis1
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: distance0
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: distance1
-      value: 41
-      objectReference: {fileID: 0}
     - target: {fileID: 5019752706637149772, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.610001
@@ -3071,7 +3031,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 892e538b4d915624bbe7408719958fb5, type: 2}
+  - {fileID: 2100000, guid: e4f9c7bcae5004c908845f3d7f06a9f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6060,18 +6020,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingPlatform(NEW)
       objectReference: {fileID: 0}
-    - target: {fileID: 3561323152028234562, guid: a1b51f1f48b7ac04197d15c0fd6a9313, type: 3}
-      propertyPath: xA
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3561323152028234562, guid: a1b51f1f48b7ac04197d15c0fd6a9313, type: 3}
-      propertyPath: xB
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3561323152028234562, guid: a1b51f1f48b7ac04197d15c0fd6a9313, type: 3}
-      propertyPath: speed
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 8172677538325502223, guid: a1b51f1f48b7ac04197d15c0fd6a9313, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20
@@ -6884,46 +6832,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 790692587}
     m_Modifications:
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: cycles
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: axis0.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: axis0.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: axis0.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: axis1.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: axis1.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: axis1.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: useAxis1
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: distance0
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2770645025262854321, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
-      propertyPath: distance1
-      value: 22
-      objectReference: {fileID: 0}
     - target: {fileID: 5019752706637149772, guid: c9500a24d4016664bbc1a1f7efec1508, type: 3}
       propertyPath: m_LocalPosition.x
       value: -34.2
