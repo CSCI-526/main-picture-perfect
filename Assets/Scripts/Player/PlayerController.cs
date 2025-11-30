@@ -30,6 +30,11 @@ public class PlayerController : MonoBehaviour
     public Transform cameraTransform;
     public float mouseSensitivity = 200f;
 
+    [Header("Double Jump")]
+    public int maxAirJumps = 1;  
+    private int airJumpCount = 0;
+
+
     private CharacterController controller;
     private PlayerRideOnPlatforms rider;
     private Vector3 velocity;
@@ -83,16 +88,23 @@ public class PlayerController : MonoBehaviour
         {
             lastGroundedTime = Time.time;
             jumpConsumed = false;
+            airJumpCount = 0;
             if (velocity.y < 0f) velocity.y = groundedStick;
         }
 
         float effectiveGravity = gravity * gravityScale;
         bool coyoteOk = (Time.time - lastGroundedTime) <= coyoteTime;
         bool bufferOk = (Time.time - lastJumpPressedTime) <= jumpBufferTime;
+
         if (!jumpConsumed && coyoteOk && bufferOk)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * effectiveGravity);
             jumpConsumed = true;
+            lastJumpPressedTime = -999f;
+        }else if (!grounded && bufferOk && airJumpCount < maxAirJumps)// double jump
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * effectiveGravity);
+            airJumpCount++;
             lastJumpPressedTime = -999f;
         }
 
