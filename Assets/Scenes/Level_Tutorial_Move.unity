@@ -201,11 +201,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2415584945139730651, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
       propertyPath: m_text
-      value: 'Green objects are MOVEABLE with bullet
+      value: 'Green arrow objects are MOVABLE with bullet
 
 
-        They move randomly,
-        shoot them to explore their paths
+        They are not
+        freezable once moving
+
+
+        They move randomly, shoot them to explore
+        their paths
 
 
         Press ''M'' to return to menu'
@@ -232,7 +236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6694955267875817361, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -207.5
+      value: -201.2
       objectReference: {fileID: 0}
     - target: {fileID: 9063529909306948224, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -438,6 +442,7 @@ MonoBehaviour:
   landingSmoothTime: 0.1
   cameraTransform: {fileID: 1183202497}
   mouseSensitivity: 200
+  maxAirJumps: 1
 --- !u!143 &126451053
 CharacterController:
   m_ObjectHideFlags: 0

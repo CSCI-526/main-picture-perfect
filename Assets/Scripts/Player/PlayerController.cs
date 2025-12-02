@@ -96,9 +96,34 @@ public class PlayerController : MonoBehaviour
         bool coyoteOk = (Time.time - lastGroundedTime) <= coyoteTime;
         bool bufferOk = (Time.time - lastJumpPressedTime) <= jumpBufferTime;
 
+        // Check if on upward-moving platform for jump boost
+        bool onUpwardPlatform = rider != null && rider.supportedThisFrame && rider.current != null;
+        bool platformMovingUp = false;
+        if (onUpwardPlatform)
+        {
+            UpAndDownPlatform upDownPlatform = rider.current.GetComponent<UpAndDownPlatform>();
+            if (upDownPlatform != null)
+            {
+                platformMovingUp = upDownPlatform.IsMovingUp;
+            }
+            else
+            {
+                // Fallback to checking delta
+                Vector3 platformDelta = rider.current.WorldDeltaThisFrame;
+                platformMovingUp = platformDelta.y > 0.001f;
+            }
+        }
+        
+        // Boost jump height when on upward-moving platform
+        float currentJumpHeight = jumpHeight;
+        if (onUpwardPlatform && platformMovingUp && grounded)
+        {
+            currentJumpHeight = jumpHeight * 2.2f; // 20% jump boost - slightly higher than normal
+        }
+
         if (!jumpConsumed && coyoteOk && bufferOk)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * effectiveGravity);
+            velocity.y = Mathf.Sqrt(currentJumpHeight * -2f * effectiveGravity);
             jumpConsumed = true;
             lastJumpPressedTime = -999f;
         }else if (!grounded && bufferOk && airJumpCount < maxAirJumps)// double jump
@@ -108,7 +133,24 @@ public class PlayerController : MonoBehaviour
             lastJumpPressedTime = -999f;
         }
 
-        velocity.y += effectiveGravity * Time.deltaTime;
+        // If on a platform that's moving upward, cancel gravity to prevent jitter
+        // Reuse the platformMovingUp variable already calculated above
+        bool onMovingPlatform = onUpwardPlatform; // Same check as above
+        
+        // Only cancel gravity if on upward platform, grounded, and NOT jumping
+        bool shouldCancelGravity = onMovingPlatform && platformMovingUp && grounded && velocity.y <= 0f;
+        
+        if (shouldCancelGravity)
+        {
+            // Platform is moving up and player is passively riding it - cancel gravity to prevent jitter
+            // Platform movement in LateUpdate will handle the vertical movement
+            velocity.y = 0f;
+        }
+        else
+        {
+            // Normal gravity application (needed for jump arcs and falling)
+            velocity.y += effectiveGravity * Time.deltaTime;
+        }
 
         // 获取移动输入
         float x = Input.GetAxisRaw("Horizontal");

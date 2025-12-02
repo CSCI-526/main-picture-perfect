@@ -1359,6 +1359,7 @@ MonoBehaviour:
   landingSmoothTime: 0.1
   cameraTransform: {fileID: 1172995451}
   mouseSensitivity: 200
+  maxAirJumps: 1
 --- !u!143 &857864124
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4094,11 +4095,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2415584945139730651, guid: da2fb533045116b4b98a2facb2f154d6, type: 3}
       propertyPath: m_text
-      value: 'Blue objects are FREEZABLE with bullet
+      value: 'Red arrow objects are freezable
 
 
-        Use WASD/Space to
-        move through platforms
+        Use WASD & Space (Space 2x
+        = Double Jump)
 
 
         If the sensitivity too high: Change in menu

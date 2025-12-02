@@ -24,6 +24,7 @@ public class Bullet : MonoBehaviour
     private Collider col;
     private bool hasHit = false;
     private Transform ignoreRoot;  // Optional: Ignore collisions with shooterRoot
+    private Vector3 lastPosition; // For raycast-based hit detection
 
     // Optional: Ignore collisions with shooterRoot
     public void Initialize(Transform shooterRoot)
@@ -61,6 +62,7 @@ public class Bullet : MonoBehaviour
 
         transform.position += transform.forward * 0.01f;
         rb.velocity = transform.forward.normalized * speed;
+        lastPosition = transform.position;
     }
 
     void Start()
@@ -70,10 +72,39 @@ public class Bullet : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!hasHit && rb.velocity.sqrMagnitude < speed * speed * 0.5f)
+        if (hasHit) return;
+
+        if (rb.velocity.sqrMagnitude < speed * speed * 0.5f)
         {
             rb.velocity = transform.forward.normalized * speed;
         }
+
+        // Raycast-based hit detection for fast-moving bullets
+        // Cast from last position to current position to catch objects we passed through
+        Vector3 currentPos = transform.position;
+        Vector3 direction = currentPos - lastPosition;
+        float distance = direction.magnitude;
+
+        if (distance > 0.01f) // Only raycast if we moved significantly
+        {
+            direction.Normalize();
+            RaycastHit[] hits = Physics.RaycastAll(lastPosition, direction, distance, hittableLayers, QueryTriggerInteraction.Collide);
+            
+            foreach (RaycastHit hit in hits)
+            {
+                // Skip if this is the shooter root
+                if (ignoreRoot && hit.collider.transform.IsChildOf(ignoreRoot)) continue;
+                
+                // Skip if layer doesn't match
+                if (((1 << hit.collider.gameObject.layer) & hittableLayers) == 0) continue;
+
+                // Found a hit via raycast
+                HandleHit(hit.collider);
+                return; // Stop after first valid hit
+            }
+        }
+
+        lastPosition = currentPos;
     }
 
     void OnTriggerEnter(Collider other)
@@ -107,9 +138,18 @@ public class Bullet : MonoBehaviour
         var freezable = hitCol.GetComponentInParent<IFreezable>();
         if (freezable == null)
         {
-            //Fallback: search the hit object’s root subtree
+            // Fallback: check the hit object itself first
+            freezable = hitCol.GetComponent<IFreezable>();
+        }
+        if (freezable == null)
+        {
+            // Fallback: search the hit object's root and its subtree
             var root = hitCol.transform.root;
-            freezable = root.GetComponentInChildren<IFreezable>();
+            freezable = root.GetComponent<IFreezable>(); // Check root itself
+            if (freezable == null)
+            {
+                freezable = root.GetComponentInChildren<IFreezable>(); // Then check children
+            }
         }
         if (freezable != null)
         {

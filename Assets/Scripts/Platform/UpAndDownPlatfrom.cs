@@ -20,6 +20,9 @@ public class UpAndDownPlatform : Freezable
     Rigidbody rb;
     int dir = 1;              //+1 = up, -1 = down
     float waitTimer = 0f;     //Wait timer at each end
+    
+    // Public property to check if platform is moving upward
+    public bool IsMovingUp => dir > 0 && waitTimer <= 0f;
 
     void Awake()
     {

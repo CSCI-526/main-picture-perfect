@@ -1809,6 +1809,7 @@ MonoBehaviour:
   landingSmoothTime: 0.1
   cameraTransform: {fileID: 799965289}
   mouseSensitivity: 200
+  maxAirJumps: 1
 --- !u!143 &376619666
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2938,7 +2939,7 @@ MonoBehaviour:
   remaining: 0
   yA: 10
   yB: 65
-  speed: 7
+  speed: 10
   waitAtEnds: 0.25
 --- !u!114 &582927012
 MonoBehaviour:
